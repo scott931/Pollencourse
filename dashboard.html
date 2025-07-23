@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub Dashboard - Your Beekeeping Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="dashboard.html" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>LearnHub</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="catalog.html"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> Community</a></li>
+                    <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search beekeeping courses, techniques, or community...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="user-nav">
+                <ul>
+                    <li><a href="#" class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></a></li>
+                    <li><a href="#" class="messages-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></a></li>
+                    <li class="user-profile" id="userProfile">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=40&h=40&facepad=2&q=80" alt="Sample Beekeeper Avatar">
+                        <span id="userName">Alex Johnson</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="user-dropdown">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-question-circle"></i>
+                                Help
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Quick Action Floating Menu -->
+    <div class="floating-menu">
+        <button class="floating-btn primary" title="Quick Search">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="floating-btn" title="New Message">
+            <i class="fas fa-plus"></i>
+        </button>
+        <button class="floating-btn" title="Help Center">
+            <i class="fas fa-question-circle"></i>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="dashboard">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-content">
+                    <h1>Welcome back, Alex! 🐝</h1>
+                    <p>Continue your beekeeping journey where you left off</p>
+                    <div class="streak-counter">
+                        <i class="fas fa-fire"></i>
+                        <span>7 day beekeeping streak!</span>
+                    </div>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=40&q=80" alt="Sample Hive Icon" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">12.5h</span>
+                            <span class="stat-label">This Week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=40&q=80" alt="Sample Beekeeper Icon" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">6</span>
+                            <span class="stat-label">Hives</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=40&q=80" alt="Sample Certificate Icon" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">95%</span>
+                            <span class="stat-label">Completion</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Continue Learning Section -->
+            <section class="continue-learning">
+                <div class="section-header">
+                    <h2><i class="fas fa-brain"></i> AI-Powered Beekeeping Recommendations</h2>
+                    <p>Based on your hive management patterns and seasonal needs</p>
+                </div>
+                <div class="course-recommendations">
+                    <div class="recommendation-card primary">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=80&q=80" alt="Sample Course Cover: Advanced Hive Management" class="course-cover" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; margin-right: 16px; float: left;">
+                        <div class="course-progress">
+                            <div class="progress-ring">
+                                <svg width="60" height="60">
+                                    <circle cx="30" cy="30" r="25" fill="none" stroke="#e0e0e0" stroke-width="4"/>
+                                    <circle cx="30" cy="30" r="25" fill="none" stroke="#A435F0" stroke-width="4"
+                                            stroke-dasharray="157" stroke-dashoffset="47" transform="rotate(-90 30 30)"/>
+                                </svg>
+                                <span class="progress-text">70%</span>
+                            </div>
+                        </div>
+                        <div class="course-info">
+                            <h3>Advanced Hive Management</h3>
+                            <p>Continue from: Module 4 - Swarm Prevention</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 2.5h remaining</span>
+                                <span><i class="fas fa-calendar"></i> Due in 3 days</span>
+                            </div>
+                            <button class="continue-btn">Continue Learning</button>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-card">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=80&q=80" alt="Sample Course Cover: Queen Rearing Masterclass" class="course-cover" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; margin-right: 16px; float: left;">
+                        <div class="course-badge">Recommended</div>
+                        <div class="course-info">
+                            <h3>Queen Rearing Masterclass</h3>
+                            <p>Perfect next step after Hive Management</p>
+                            <div class="course-meta">
+                                <span><i class="fas fa-clock"></i> 18h total</span>
+                                <span><i class="fas fa-users"></i> 1.8k enrolled</span>
+                            </div>
+                            <div class="ai-reason">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>AI suggests this based on your hive management progress</span>
+                            </div>
+                            <button class="start-btn">Start Course</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Analytics Dashboard -->
+            <section class="analytics-dashboard">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Hive Management Analytics</h2>
+                    <div class="time-filter">
+                        <button class="active">Week</button>
+                        <button>Month</button>
+                        <button>Year</button>
+                    </div>
+                </div>
+                <!-- Hive Management Analytics: Use interactive Chart.js charts -->
+                <div class="analytics-grid">
+                    <div class="chart-card">
+                        <h3>Weekly Progress</h3>
+                        <canvas id="weeklyProgressChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Time Distribution by Hive Activity</h3>
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Beekeeping Skills Development</h3>
+                        <canvas id="skillRadarChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Hive Management Heatmap</h3>
+                        <div class="heatmap">
+                            <div class="heatmap-grid">
+                                <!-- Generated by JavaScript -->
+                            </div>
+                            <div class="heatmap-legend">
+                                <span>Less</span>
+                                <div class="legend-colors">
+                                    <div class="color-box"></div>
+                                    <div class="color-box"></div>
+                                    <div class="color-box"></div>
+                                    <div class="color-box"></div>
+                                    <div class="color-box"></div>
+                                </div>
+                                <span>More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievement Badges -->
+            <section class="achievements">
+                <div class="section-header">
+                    <h2><i class="fas fa-medal"></i> Achievements & Certifications</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="badges-grid">
+                    <div class="badge-card earned">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Hive Master" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <h3>Hive Master</h3>
+                        <p>Completed Advanced Hive Management Course</p>
+                        <span class="earned-date">Earned 2 days ago</span>
+                    </div>
+                    <div class="badge-card earned">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Beekeeping Streak" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <h3>Beekeeping Streak</h3>
+                        <p>7 consecutive days of hive management</p>
+                        <span class="earned-date">Earned today</span>
+                    </div>
+                    <div class="badge-card locked">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Honey Producer" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <h3>Honey Producer</h3>
+                        <p>Harvest 50 lbs of honey</p>
+                        <span class="progress">35/50 lbs harvested</span>
+                    </div>
+                    <div class="badge-card locked">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Community Helper" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                        <h3>Community Helper</h3>
+                        <p>Help 50 other beekeepers</p>
+                        <span class="progress">23/50 helped</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Events Calendar -->
+            <section class="live-events">
+                <div class="section-header">
+                    <h2><i class="fas fa-calendar-alt"></i> Beekeeping Events & Deadlines</h2>
+                    <a href="#" class="view-all">View Calendar</a>
+                </div>
+                <div class="events-grid">
+                    <div class="event-card upcoming">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=100&q=80" alt="Sample Beekeeping Event: Swarm Prevention Q&A" class="event-img" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 8px;">
+                        <div class="event-time">
+                            <span class="date">15</span>
+                            <span class="month">Dec</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Live Q&A: Swarm Prevention Techniques</h3>
+                            <p>Join instructor Sarah Mitchell for live Q&A session</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 2:00 PM EST</span>
+                                <span><i class="fas fa-users"></i> 156 attending</span>
+                            </div>
+                            <button class="join-btn">Join Event</button>
+                        </div>
+                    </div>
+                    <div class="event-card deadline">
+                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=100&q=80" alt="Sample Beekeeping Event: Winter Hive Preparation" class="event-img" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 8px;">
+                        <div class="event-time urgent">
+                            <span class="date">18</span>
+                            <span class="month">Dec</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Winter Hive Preparation Due</h3>
+                            <p>Complete winter preparation checklist for all hives</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-exclamation-triangle"></i> 3 days left</span>
+                                <span><i class="fas fa-percentage"></i> 70% complete</span>
+                            </div>
+                            <button class="continue-btn">Continue Preparation</button>
+                        </div>
+                    </div>
+                    <div class="event-card webinar">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=100&q=80" alt="Sample Beekeeping Event: Business Workshop" class="event-img" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 8px;">
+                        <div class="event-time">
+                            <span class="date">20</span>
+                            <span class="month">Dec</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Beekeeping Business Workshop</h3>
+                            <p>Learn how to market your honey and bee products</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 7:00 PM EST</span>
+                                <span><i class="fas fa-users"></i> 89 attending</span>
+                            </div>
+                            <button class="rsvp-btn">RSVP</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Activity Feed -->
+            <section class="community-feed">
+                <div class="section-header">
+                    <h2><i class="fas fa-comments"></i> Community Activity</h2>
+                    <a href="#" class="view-all">View All Posts</a>
+                </div>
+                <div class="feed-container">
+                    <div class="activity-card">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sample Community Member: Maria Rodriguez">
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <span class="user-name">Maria Rodriguez</span>
+                                <span class="activity-type">completed a course</span>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                            <p>Just finished "Advanced Hive Management" with 95% score! 🎉</p>
+                            <div class="course-mention">
+                                <i class="fas fa-book"></i>
+                                <span>Advanced Hive Management</span>
+                            </div>
+                            <div class="activity-actions">
+                                <button><i class="fas fa-heart"></i> 12</button>
+                                <button><i class="fas fa-comment"></i> 3</button>
+                                <button><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Sample Community Member: David Kim">
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <span class="user-name">David Kim</span>
+                                <span class="activity-type">asked a question</span>
+                                <span class="activity-time">4 hours ago</span>
+                            </div>
+                            <p>Can someone help me understand swarm prevention? I'm worried about my hives...</p>
+                            <div class="question-tags">
+                                <span class="tag">#swarming</span>
+                                <span class="tag">#hivemanagement</span>
+                                <span class="tag">#help</span>
+                            </div>
+                            <div class="activity-actions">
+                                <button><i class="fas fa-heart"></i> 5</button>
+                                <button><i class="fas fa-comment"></i> 8</button>
+                                <button><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Sample Community Member: LearnHub Team">
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-header">
+                                <span class="user-name">LearnHub Team</span>
+                                <span class="activity-type">announced</span>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                            <p>🐝 New Feature Alert! Try our AI-powered hive monitoring and seasonal management recommendations!</p>
+                            <div class="announcement-banner">
+                                <i class="fas fa-star"></i>
+                                <span>Try the new AI beekeeping features now!</span>
+                            </div>
+                            <div class="activity-actions">
+                                <button><i class="fas fa-heart"></i> 45</button>
+                                <button><i class="fas fa-comment"></i> 12</button>
+                                <button><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- AI Assistant Chat Widget -->
+    <!-- (AI Assistant removed as requested) -->
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h4>Beekeeping Courses</h4>
+                        <ul>
+                            <li><a href="beekeeping-basics.html">Beginner Courses</a></li>
+                            <li><a href="hive-management.html">Advanced Hive Management</a></li>
+                            <li><a href="homecourse.html">Complete Beekeeping</a></li>
+                            <li><a href="catalog.html">All Courses</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Community & Support</h4>
+                        <ul>
+                            <li><a href="community.html">Discussion Forums</a></li>
+                            <li><a href="#">Local Beekeeping Groups</a></li>
+                            <li><a href="#">Mentorship Program</a></li>
+                            <li><a href="#">Help Center</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Resources & Tools</h4>
+                        <ul>
+                            <li><a href="#">Equipment Guides</a></li>
+                            <li><a href="#">Seasonal Management</a></li>
+                            <li><a href="#">Disease Prevention</a></li>
+                            <li><a href="#">Honey Production Tips</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>About LearnHub</h4>
+                        <ul>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>LearnHub</span>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Cookie settings</a>
+                    <select class="language-selector">
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/messages.js"></script>
+    <script>window.addEventListener('DOMContentLoaded', function() { new DashboardManager(); });</script>
+</body>
+</html>

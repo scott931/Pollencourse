@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollen Patrollers-Platform Architecture</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Abstract Background Elements */
+        .abstract-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 199, 39, 0.12);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 80%;
+            animation-delay: -2s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 70%;
+            left: 10%;
+            animation-delay: -4s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 40%;
+            right: 90%;
+            animation-delay: -1s;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1587049352851-8d4e89133924?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); */
+            background-image: url("./img/rm380-19.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            transform: translateY(20px);
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+
+        .network-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .logo h1 {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background-color: #ffb300;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Title Section */
+        .title-section {
+
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            background: #fff;
+        }
+
+        .main-title {
+            margin-top: 100px;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #FFC727;
+            animation: none;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        @keyframes titleGlow {
+            from {
+                filter: none;
+            }
+
+            to {
+                filter: none;
+            }
+        }
+
+        /* Architecture Flow */
+        .architecture-flow {
+            padding: 4rem 0;
+            position: relative;
+            background: #fafafa;
+        }
+
+        .flow-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #FFC727;
+        }
+
+        .flow-diagram {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .flow-step {
+            background: #fff;
+            border: 1px solid #FFC727;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .flow-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #FFC727;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-10px);
+            background: #f7f7f7;
+            border-color: #111;
+            box-shadow: 0 20px 40px rgba(255, 199, 39, 0.08);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFC727;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+
+        .step-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        /* Modules Section */
+        .modules-section {
+            padding: 4rem 0;
+            background: #fff;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .module-card {
+            background: #fafafa;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid #FFC727;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: transparent;
+            animation: none;
+            z-index: -1;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            background: #fffbe6;
+            border-color: #111;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .module-icon {
+            font-size: 2.5rem;
+            color: #FFC727;
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            background-clip: initial;
+        }
+
+        .module-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .module-content {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            color: #222;
+        }
+
+        .module-topics {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .module-topics li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .module-topics li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #FFC727;
+            font-size: 0.8rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 0;
+            background: #fafafa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 1px solid #FFC727;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: #fffbe6;
+            box-shadow: 0 15px 35px rgba(255, 199, 39, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #FFC727;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+
+        .feature-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        /* Scale-up Section */
+        .scaleup-section {
+            padding: 4rem 0;
+            background: #fff;
+        }
+
+        .scaleup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .scaleup-item {
+            background: #fafafa;
+            border: 1px solid #FFC727;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .scaleup-item:hover {
+            transform: translateY(-5px);
+            background: #fffbe6;
+            border-color: #111;
+        }
+
+        .scaleup-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FFC727;
+        }
+
+        .scaleup-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 0;
+            text-align: center;
+            background: #fffbe6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFC727;
+            color: #111;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 199, 39, 0.18);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-diagram {
+                grid-template-columns: 1fr;
+            }
+
+            .module-card {
+                padding: 1.5rem;
+            }
+        }
+
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 4rem 0 0;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23fafafa" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23fafafa" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23fafafa"/></svg>');
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            padding: 3rem 0;
+            position: relative;
+            z-index: 1;
+            margin-top: 50px;
+        }
+
+        .footer-column h3 {
+            color: #FFC727;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #FFC727;
+        }
+
+        .footer-column p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: #FFC727;
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            color: #FFC727;
+            font-size: 0.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #FFC727;
+            color: #111;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            padding: 12px;
+            background: #FFC727;
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #ffb300;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-accent {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .footer-bee {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23FFC727" d="M512 256c0 18.6-15.1 33.7-33.7 33.7-18.6 0-33.7-15.1-33.7-33.7s15.1-33.7 33.7-33.7c18.6 0 33.7 15.1 33.7 33.7zM256 33.7c-18.6 0-33.7-15.1-33.7-33.7S237.4-33.7 256-33.7c18.6 0 33.7 15.1 33.7 33.7S274.6 33.7 256 33.7zM33.7 222.3C15.1 222.3 0 237.4 0 256s15.1 33.7 33.7 33.7c18.6 0 33.7-15.1 33.7-33.7s-15.1-33.7-33.7-33.7zM256 512c-18.6 0-33.7-15.1-33.7-33.7s15.1-33.7 33.7-33.7c18.6 0 33.7 15.1 33.7 33.7S274.6 512 256 512z"/></svg>');
+            background-size: contain;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .footer-bee-1 {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .footer-bee-2 {
+            bottom: 15%;
+            right: 8%;
+            animation-delay: -2s;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-column {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="abstract-bg">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="network-grid"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="img/logo.png" alt="Pollen Patrollers Logo">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index4.html">Home</a></li>
+                    <li><a href="architecture.html ">Architecture </a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="dashboard.html">Login</a></li>
+
+                </ul>
+                <!-- <a href="#contact" class="cta-button pulse">Get Involved</a> -->
+            </nav>
+        </div>
+    </header>
+
+
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate fade-in" style="animation-delay: 0.3s;">
+                <h1>Platform Architecture</h1>
+                <p>Enterprise-grade AI-powered training ecosystem designed for scalable youth empowerment and IoT
+                    agricultural innovation across Africa
+                </p>
+                <!-- <div class="hero-buttons">
+                    <a href="#solution" class="cta-button pulse">Learn More</a> -->
+                <!-- <a href="https://www.youtube.com/watch?v=wNlYTps9TH0" class="secondary-button pulse">Watch Video</a> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="architecture-flow">
+        <div class="container">
+            <h2 class="flow-title">User Access Flow</h2>
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Authentication</h3>
+                    <p class="step-description">Login/Sign-up via phone, email, or USSD code with secure
+                        authentication protocols</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Role Selection</h3>
+                    <p class="step-description">Dynamic role assignment: Learner, Mentor, or Admin with customized
+                        dashboard experiences</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Localization</h3>
+                    <p class="step-description">AI-powered language preference selection supporting English, Swahili,
+                        Kikamba, and more</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">04</div>
+                    <h3 class="step-title">Track Selection</h3>
+                    <p class="step-description">Specialized learning paths: IoT Technician, AI & Data Support,
+                        Pollination Operations</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">05</div>
+                    <h3 class="step-title">Offline Sync</h3>
+                    <p class="step-description">Intelligent offline/online mode detection with downloadable learning
+                        packs for remote areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section">
+        <div class="container">
+            <h2 class="flow-title">Core Training Modules</h2>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🌐</div>
+                        <h3 class="module-title">IoT in Agriculture</h3>
+                    </div>
+                    <div class="module-content">
+                        <p>Foundation module covering IoT fundamentals and agricultural applications</p>
+                        <ul class="module-topics">
+                            <li>IoT basics and ecosystem overview</li>
+                            <li>Smart hive component architecture</li>
+                            <li>Sensor integration (Temperature, Humidity, Queen Status)</li>
+                            <li>Real-time data collection protocols</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🎯</div>
+                        <h3 class="module-title">Precision Pollination</h3>
+                    </div>
+                    <div class="module-content">
+                        <p>Advanced pollination logistics and AI-driven optimization strategies</p>
+                        <ul class="module-topics">
+                            <li>Pollination logistics and supply chain</li>
+                            <li>AI-driven hive scheduling algorithms</li>
+                            <li>GIS mapping and strategic placement</li>
+                            <li>IoT dashboard interpretation and analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🤖</div>
+                        <h3 class="module-title">AI & Data Intelligence</h3>
+                    </div>
+                    <div class="module-content">
+                        <p>Generative AI fundamentals and practical applications</p>
+                        <ul class="module-topics">
+                            <li>AI and generative AI concepts</li>
+                            <li>Pollen Patrollers AI tool ecosystem</li>
+                            <li>Chatbot interactions and training data</li>
+                            <li>Prompt engineering in local languages</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">🔧</div>
+                        <h3 class="module-title">Device Maintenance</h3>
+                    </div>
+                    <div class="module-content">
+                        <p>Comprehensive maintenance and troubleshooting protocols</p>
+                        <ul class="module-topics">
+                            <li>Smart hive repair methodologies</li>
+                            <li>Offline/online diagnostics</li>
+                            <li>Faulty device data recovery</li>
+                            <li>Safety protocols and best practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-icon">💼</div>
+                        <h3 class="module-title">Digital Entrepreneurship</h3>
+                    </div>
+                    <div class="module-content">
+                        <p>Business skills and digital economy participation</p>
+                        <ul class="module-topics">
+                            <li>Revenue generation from services</li>
+                            <li>Platform-based gig economy</li>
+                            <li>Digital wallet integration</li>
+                            <li>Mobile job marketplace tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="flow-title">Platform Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Offline-First Architecture</h3>
+                    <p class="feature-description">Progressive web app with robust offline capabilities, ensuring
+                        continuous learning even in remote areas with limited connectivity</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h3 class="feature-title">AI-Powered Multilingual Support</h3>
+                    <p class="feature-description">Generative AI chatbot providing real-time Q&A support in local
+                        languages with context-aware responses</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Advanced Analytics Dashboard</h3>
+                    <p class="feature-description">Comprehensive progress tracking with personalized learning analytics
+                        and performance insights</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3 class="feature-title">Multimedia Learning Content</h3>
+                    <p class="feature-description">Interactive video tutorials, audio clips, and immersive learning
+                        experiences optimized for mobile devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Digital Certification System</h3>
+                    <p class="feature-description">Blockchain-verified digital certificates with industry recognition
+                        and career advancement pathways</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Intelligent Mentor Matching</h3>
+                    <p class="feature-description">AI-driven mentor-mentee pairing based on skills, location, and
+                        learning objectives with peer discussion networks</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Service Request Marketplace</h3>
+                    <p class="feature-description">Integrated gig economy platform connecting trained technicians with
+                        service opportunities and job requests</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Adaptive Learning Engine</h3>
+                    <p class="feature-description">Machine learning algorithms that personalize content delivery based
+                        on individual learning patterns and progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scaleup-section">
+        <div class="container">
+            <h2 class="flow-title">Scale-Up Requirements</h2>
+            <div class="scaleup-grid">
+                <div class="scaleup-item">
+                    <div class="scaleup-icon">🌍</div>
+                    <h3 class="scaleup-title">Local Language Translators</h3>
+                </div>
+                <div class="scaleup-item">
+                    <div class="scaleup-icon">🔧</div>
+                    <h3 class="scaleup-title">IoT Repair Demo Kits</h3>
+                </div>
+                <div class="scaleup-item">
+                    <div class="scaleup-icon">👥</div>
+                    <h3 class="scaleup-title">Community Tech Mentors</h3>
+                </div>
+                <div class="scaleup-item">
+                    <div class="scaleup-icon">🔋</div>
+                    <h3 class="scaleup-title">Solar-Charging Devices</h3>
+                </div>
+                <div class="scaleup-item">
+                    <div class="scaleup-icon">📊</div>
+                    <h3 class="scaleup-title">Admin Monitoring Dashboards</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="flow-title">Ready to Transform Agricultural Technology?</h2>
+            <p class="subtitle">Join us in building the future of sustainable agriculture through youth empowerment and
+                IoT innovation</p>
+            <a href="#contact" class="cta-button" style="margin-top: 20px;">Get Started Today</a>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Pollen Patrollers</h3>
+                    <p>Innovative agritech company tackling bee colony collapse using smart hive technology to ensure
+                        food security across Africa.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index4.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="architecture.html"><i class="fas fa-chevron-right"></i> Architecture</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="footer-column">
+                    <h3>More Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#opportunities"><i class="fas fa-chevron-right"></i> Opportunities</a></li>
+                        <li><a href="#platform"><i class="fas fa-chevron-right"></i> Platform</a></li>
+                        <li><a href="#training"><i class="fas fa-chevron-right"></i> Training</a></li>
+                        <li><a href="#impact"><i class="fas fa-chevron-right"></i> Impact</a></li>
+                        <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                    </ul>
+                </div> -->
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:0704611678"><i class="fas fa-phone"></i> 0704611678</a></li>
+                        <li><a href="mailto:PollenPatrollers@gmail.com"><i class="fas fa-envelope"></i>
+                                PollenPatrollers@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Chandaria Innovation Centre, Nairobi</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for updates on our work and opportunities to get involved.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2025 Pollen Patrollers. All Rights Reserved.</p>
+            </div>
+        </div>
+        <!--
+        <div class="footer-bee footer-bee-1"></div>
+        <div class="footer-bee footer-bee-2"></div> -->
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.flow-step, .module-card, .feature-card, .scaleup-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+
+        // Parallax effect for geometric shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.geometric-shape');
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add CSS for fadeInUp animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
