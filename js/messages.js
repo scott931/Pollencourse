@@ -32,7 +32,7 @@ class MessageManager {
             {
                 id: 3,
                 type: 'support',
-                sender: 'LearnHub Support',
+                sender: 'Pollen Patrol Academy Support',
                 title: 'Course Progress Update',
                 message: 'Great job on completing Module 3! You\'re making excellent progress. Keep up the good work!',
                 time: '3 hours ago',
@@ -54,7 +54,7 @@ class MessageManager {
             {
                 id: 5,
                 type: 'system',
-                sender: 'LearnHub System',
+                sender: 'Pollen Patrol Academy System',
                 title: 'New Feature Available',
                 message: 'We\'ve just launched our new mobile app! Download it to continue learning on the go with offline access to your courses.',
                 time: '1 day ago',

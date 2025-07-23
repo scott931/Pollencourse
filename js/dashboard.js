@@ -633,7 +633,7 @@ class DashboardManager {
                     <div class="help-category">
                         <i class="fas fa-question-circle"></i>
                         <h3>Getting Started with Beekeeping</h3>
-                        <p>Learn the basics of beekeeping and using LearnHub</p>
+                        <p>Learn the basics of beekeeping and using Pollen Patrol Academy</p>
                     </div>
                     <div class="help-category">
                         <i class="fas fa-book"></i>

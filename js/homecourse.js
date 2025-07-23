@@ -243,13 +243,13 @@ function shareCourse() {
     if (navigator.share) {
         navigator.share({
             title: 'Complete Guide to Build IOT Things from Scratch to Market',
-            text: 'Check out this amazing IoT course on LearnHub!',
+            text: 'Check out this amazing IoT course on Pollen Patrol Academy!',
             url: window.location.href
         });
     } else {
         // Fallback for browsers that don't support Web Share API
         const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent('Check out this amazing IoT course on LearnHub!');
+        const text = encodeURIComponent('Check out this amazing IoT course on Pollen Patrol Academy!');
         window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
     }
 }

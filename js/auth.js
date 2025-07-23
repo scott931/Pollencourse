@@ -316,7 +316,7 @@ class AuthManager {
             localStorage.setItem('userData', JSON.stringify(userData));
 
             // Show success message
-            this.showNotification('Registration successful! Welcome to LearnHub!', 'success');
+            this.showNotification('Registration successful! Welcome to Pollen Patrol Academy!', 'success');
 
             // Redirect to dashboard
             setTimeout(() => {

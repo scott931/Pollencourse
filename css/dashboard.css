@@ -69,6 +69,7 @@ body {
     text-decoration: none;
     transition: color 0.2s ease;
     margin-right: 16px;
+    line-height: 1;
 }
 
 .logo:hover {
@@ -78,6 +79,16 @@ body {
 .logo i {
     margin-right: 8px;
     font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.logo span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
 }
 
 .main-nav ul {

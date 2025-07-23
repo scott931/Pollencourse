@@ -756,7 +756,7 @@ class CommunityManager {
                         <div class="contact-methods">
                             <div class="contact-method">
                                 <i class="fas fa-envelope"></i>
-                                <span>support@learnhub.com</span>
+                                <span>support@pollenpatrolacademy.com</span>
                             </div>
                             <div class="contact-method">
                                 <i class="fas fa-phone"></i>
