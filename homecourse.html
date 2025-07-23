@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/homecourse.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -15,44 +16,40 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <a href="dashboard.html" class="logo">
+            <a href="index.html" class="logo">
                 <i class="fas fa-graduation-cap"></i>
                 <span>LearnHub</span>
             </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="catalog.html"><i class="fas fa-book"></i> Courses</a></li>
-                    <li><a href="community.html"><i class="fas fa-users"></i> Community</a></li>
-                    <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search for anything">
-                <button><i class="fas fa-search"></i></button>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for anything">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <nav class="user-nav">
+                    <ul>
+                        <li>
+                            <button class="start-course-btn" onclick="window.location.href='login.html'">
+                                <i class="fas fa-play"></i>
+                                <span>Login to Start Course</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <nav class="user-nav">
-                <ul>
-                    <li><a href="#" class="notification-btn"><i class="fas fa-bell"></i><span class="badge">3</span></a></li>
-                    <li><a href="#" class="messages-btn"><i class="fas fa-envelope"></i><span class="badge">5</span></a></li>
-                    <li class="user-profile">
-                        <img src="https://via.placeholder.com/40x40" alt="User Avatar">
-                        <span>Alex Johnson</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </li>
-                </ul>
-            </nav>
         </div>
     </header>
 
     <!-- Course Hero Section -->
     <section class="course-hero">
+        <div class="hero-bee-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&h=600&q=80" alt="Teacher Teaching Beekeeping" class="bee-image">
+        </div>
         <div class="container">
             <div class="course-hero-content">
                 <div class="breadcrumbs">
-                    <a href="dashboard.html">Dashboard</a> >
-                    <a href="catalog.html">Agriculture</a> >
-                    <a href="#">Farming & Livestock</a> >
+                    <span>Agriculture</span> >
+                    <span>Farming & Livestock</span> >
                     <span>Beekeeping</span>
                 </div>
                 <h1 class="course-title" data-aos="fade-up">Complete Guide to Beekeeping: From Beginner to Professional Beekeeper</h1>
@@ -74,6 +71,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- Main Content -->
     <main class="course-catalog">
@@ -116,6 +115,8 @@
                             <span>Navigate beekeeping regulations and best practices</span>
                         </div>
                     </div>
+
+
                 </section>
 
                 <!-- Course Includes Section -->
@@ -414,6 +415,185 @@
                         </div>
                     </div>
 
+                    <div class="course-content">
+                        <div class="content-header" onclick="toggleContent(this)">
+                            <h4>Queen Rearing & Colony Management</h4>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Understanding Queen Bee Development</span>
+                                <span class="content-item-duration">31:20</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Artificial Queen Rearing Techniques</span>
+                                <span class="content-item-duration">35:45</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Colony Splitting and Multiplication</span>
+                                <span class="content-item-duration">28:15</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span class="content-item-title">Queen Introduction Methods</span>
+                                <span class="content-item-duration">22:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-content">
+                        <div class="content-header" onclick="toggleContent(this)">
+                            <h4>Advanced Hive Inspection</h4>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Reading the Hive: What to Look For</span>
+                                <span class="content-item-duration">33:40</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Brood Pattern Analysis</span>
+                                <span class="content-item-duration">26:55</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Honey Flow Assessment</span>
+                                <span class="content-item-duration">19:20</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Emergency Inspections</span>
+                                <span class="content-item-duration">24:10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-content">
+                        <div class="content-header" onclick="toggleContent(this)">
+                            <h4>Seasonal Beekeeping Calendar</h4>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Spring: Colony Buildup and Swarm Prevention</span>
+                                <span class="content-item-duration">42:15</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Summer: Honey Production and Harvest</span>
+                                <span class="content-item-duration">38:30</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Fall: Winter Preparation</span>
+                                <span class="content-item-duration">29:45</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Winter: Hive Monitoring and Maintenance</span>
+                                <span class="content-item-duration">25:20</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-content">
+                        <div class="content-header" onclick="toggleContent(this)">
+                            <h4>Equipment & Tools Mastery</h4>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Essential Beekeeping Tools</span>
+                                <span class="content-item-duration">27:35</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Hive Components and Assembly</span>
+                                <span class="content-item-duration">34:20</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Protective Gear and Safety Equipment</span>
+                                <span class="content-item-duration">21:15</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Honey Extraction Equipment</span>
+                                <span class="content-item-duration">32:40</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span class="content-item-title">Equipment Maintenance and Storage</span>
+                                <span class="content-item-duration">18:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-content">
+                        <div class="content-header" onclick="toggleContent(this)">
+                            <h4>Beekeeping Regulations & Best Practices</h4>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Local and State Regulations</span>
+                                <span class="content-item-duration">23:45</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Beekeeping Associations and Networks</span>
+                                <span class="content-item-duration">19:20</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Insurance and Liability</span>
+                                <span class="content-item-duration">16:55</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Record Keeping and Documentation</span>
+                                <span class="content-item-duration">21:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-content">
+                        <div class="content-header" onclick="toggleContent(this)">
+                            <h4>Course Conclusion & Next Steps</h4>
+                            <i class="fas fa-chevron-down toggle-icon"></i>
+                        </div>
+                        <div class="content-items">
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Your Beekeeping Journey Begins</span>
+                                <span class="content-item-duration">15:20</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span class="content-item-title">Additional Resources and References</span>
+                                <span class="content-item-duration">12:45</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-play"></i>
+                                <span class="content-item-title">Joining the Beekeeping Community</span>
+                                <span class="content-item-duration">18:30</span>
+                            </div>
+                            <div class="content-item">
+                                <i class="fas fa-certificate"></i>
+                                <span class="content-item-title">Course Completion Certificate</span>
+                                <span class="content-item-duration">5:00</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <button class="expand-all-btn" onclick="expandAllSections()">Expand all sections</button>
                 </section>
 
@@ -444,122 +624,16 @@
                     </div>
                 </section>
 
-                <!-- Students Also Bought Section -->
-                <section class="content-section" data-aos="fade-up">
-                    <h2 class="section-title">Students also bought</h2>
-                    <div class="related-courses">
-                        <div class="related-course-card" onclick="navigateToCourse('organic-farming')">
-                            <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
-                                <div class="heart-icon">
-                                    <i class="far fa-heart"></i>
-                    </div>
-                </div>
-                            <div class="related-course-info">
-                                <h4 class="related-course-title">Organic Farming Masterclass</h4>
-                                <div class="related-course-rating">
-                                    <span class="related-course-stars">★★★★★</span>
-                                    <span>4.8 (2,145)</span>
-            </div>
-                                <div class="related-course-meta">28 hours • Updated 1/2024</div>
-                                <div class="related-course-price">$14.99</div>
-                </div>
-                        </div>
 
-                        <div class="related-course-card" onclick="navigateToCourse('honey-production')">
-                            <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
-                                <div class="heart-icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                            <div class="related-course-info">
-                                <h4 class="related-course-title">Honey Production and Processing</h4>
-                                <div class="related-course-rating">
-                                    <span class="related-course-stars">★★★★☆</span>
-                                    <span>4.6 (1,876)</span>
-                                </div>
-                                <div class="related-course-meta">15 hours • Updated 12/2023</div>
-                                <div class="related-course-price">$9.99</div>
-                            </div>
-                        </div>
 
-                        <div class="related-course-card" onclick="navigateToCourse('queen-rearing')">
-                            <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
-                                <div class="heart-icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                            <div class="related-course-info">
-                                <h4 class="related-course-title">Queen Rearing Techniques</h4>
-                                <div class="related-course-rating">
-                                    <span class="related-course-stars">★★★★★</span>
-                                    <span>4.9 (3,234)</span>
-                                </div>
-                                <div class="related-course-meta">18 hours • Updated 2/2024</div>
-                                <div class="related-course-price">$16.99</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- Frequently Bought Together Section -->
-                <section class="content-section" data-aos="fade-up">
-                    <h2 class="section-title">Frequently Bought Together</h2>
-                    <div class="frequently-bought">
-                        <div class="related-course-card">
-                            <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
-                            </div>
-                            <div class="related-course-info">
-                                <h4 class="related-course-title">Complete Guide to Beekeeping</h4>
-                                <div class="related-course-rating">
-                                    <span class="related-course-stars">★★★★☆</span>
-                                    <span>4.2 (13,254)</span>
-                                </div>
-                                <div class="related-course-price">$13.99</div>
-                            </div>
-                        </div>
-                        <div class="plus-icon">+</div>
-                        <div class="related-course-card">
-                            <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
-                            </div>
-                            <div class="related-course-info">
-                                <h4 class="related-course-title">Hive Management Masterclass</h4>
-                                <div class="related-course-rating">
-                                    <span class="related-course-stars">★★★★★</span>
-                                    <span>4.7 (8,432)</span>
-                                </div>
-                                <div class="related-course-price">$15.99</div>
-                            </div>
-                        </div>
-                        <div class="plus-icon">+</div>
-                        <div class="related-course-card">
-                            <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
-                            </div>
-                            <div class="related-course-info">
-                                <h4 class="related-course-title">Beekeeping Equipment Guide</h4>
-                                <div class="related-course-rating">
-                                    <span class="related-course-stars">★★★★☆</span>
-                                    <span>4.5 (5,123)</span>
-                                </div>
-                                <div class="related-course-price">$11.99</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="total-price">Total: $41.97 <span class="original-price">$89.97</span></div>
-                    <button class="add-all-btn" onclick="addAllToCart()">Add all to cart</button>
-                </section>
 
                 <!-- Instructor Section -->
                 <section class="content-section" data-aos="fade-up">
                     <h2 class="section-title">Instructor</h2>
                     <div class="instructor-profile">
                         <div class="instructor-avatar">
-                            <img src="https://via.placeholder.com/80x80" alt="Sarah Mitchell">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=facearea&w=80&h=80&facepad=2&q=80" alt="Sarah Mitchell">
                         </div>
                         <div class="instructor-info">
                             <h3 class="instructor-name">Sarah Mitchell</h3>
@@ -589,6 +663,104 @@
                                     <p>She believes in practical, hands-on learning and ensures that all her courses include real-world scenarios that students can apply to their own beekeeping operations.</p>
                                 </div>
                                 <button class="show-more-btn" onclick="toggleInstructorBio()">Show more</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Students Also Bought Section -->
+                <section class="content-section" data-aos="fade-up">
+                    <h2 class="section-title">Students also bought</h2>
+                    <div class="students-also-bought">
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=200&h=120&q=80" alt="Organic Beekeeping Methods">
+                                <div class="course-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h4 class="course-title">Organic Beekeeping Methods</h4>
+                                <div class="course-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-count">4.8 (2,456)</span>
+                                </div>
+                                <div class="course-meta">14 hours • 89 lectures</div>
+                                <div class="course-price">$12.99</div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=200&h=120&q=80" alt="Honey Production & Processing">
+                                <div class="course-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h4 class="course-title">Honey Production & Processing</h4>
+                                <div class="course-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">4.6 (1,892)</span>
+                                </div>
+                                <div class="course-meta">12 hours • 67 lectures</div>
+                                <div class="course-price">$11.99</div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=200&h=120&q=80" alt="Commercial Beekeeping Operations">
+                                <div class="course-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h4 class="course-title">Commercial Beekeeping Operations</h4>
+                                <div class="course-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-count">4.9 (3,124)</span>
+                                </div>
+                                <div class="course-meta">18 hours • 112 lectures</div>
+                                <div class="course-price">$16.99</div>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=200&h=120&q=80" alt="Bee Health & Disease Management">
+                                <div class="course-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h4 class="course-title">Bee Health & Disease Management</h4>
+                                <div class="course-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-count">4.5 (1,567)</span>
+                                </div>
+                                <div class="course-meta">10 hours • 58 lectures</div>
+                                <div class="course-price">$9.99</div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="course-card">
+                            <div class="course-image">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=200&h=120&q=80" alt="Beekeeping Business Mastery">
+                                <div class="course-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h4 class="course-title">Beekeeping Business Mastery</h4>
+                                <div class="course-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-count">4.8 (2,234)</span>
+                                </div>
+                                <div class="course-meta">16 hours • 94 lectures</div>
+                                <div class="course-price">$14.99</div>
                             </div>
                         </div>
                     </div>
@@ -661,7 +833,7 @@
                     <div class="related-courses">
                         <div class="related-course-card" onclick="navigateToCourse('hive-management')">
                             <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
+                                <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=200&h=120&q=80" alt="Advanced Hive Management">
                                 <div class="heart-icon">
                                     <i class="far fa-heart"></i>
                                 </div>
@@ -679,7 +851,7 @@
 
                         <div class="related-course-card" onclick="navigateToCourse('queen-rearing')">
                             <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
+                                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=200&h=120&q=80" alt="Queen Rearing Masterclass">
                                 <div class="heart-icon">
                                     <i class="far fa-heart"></i>
                                 </div>
@@ -697,7 +869,7 @@
 
                         <div class="related-course-card" onclick="navigateToCourse('honey-business')">
                             <div class="related-course-image">
-                                <img src="https://via.placeholder.com/200x120" alt="Course">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=200&h=120&q=80" alt="Honey Business Mastery">
                                 <div class="heart-icon">
                                     <i class="far fa-heart"></i>
                                 </div>
@@ -719,7 +891,7 @@
             <!-- Sticky Sidebar -->
             <div class="course-sidebar">
                 <div class="course-preview" onclick="previewCourse()">
-                    <img src="https://via.placeholder.com/340x200" alt="Course Preview">
+                    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=340&h=200&q=80" alt="Course Preview">
                     <div class="preview-overlay">
                         <i class="fas fa-play"></i>
                         <span>Preview this course</span>
@@ -782,17 +954,6 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="footer-banner">
-        <div class="container">
-                <h3>Top companies choose LearnHub Business to build in-demand career skills.</h3>
-                <div class="company-logos">
-                    <img src="https://via.placeholder.com/120x32" alt="Nasdaq" class="company-logo">
-                    <img src="https://via.placeholder.com/120x32" alt="Volkswagen" class="company-logo">
-                    <img src="https://via.placeholder.com/120x32" alt="NetApp" class="company-logo">
-                    <img src="https://via.placeholder.com/120x32" alt="Eventbrite" class="company-logo">
-                </div>
-            </div>
-        </div>
 
         <div class="footer-content">
             <div class="container">

@@ -482,10 +482,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Check if user is already logged in
 function checkAuthStatus() {
     const userData = localStorage.getItem('userData');
+    // Only redirect if we're on login.html and user is logged in
     if (userData && window.location.pathname.includes('login.html')) {
         window.location.href = 'dashboard.html';
     }
 }
 
-// Run auth check
-checkAuthStatus();
+// Only run auth check on login and register pages
+if (window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html')) {
+    checkAuthStatus();
+}

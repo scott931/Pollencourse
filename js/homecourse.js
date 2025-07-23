@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize helpful buttons
     initializeHelpfulButtons();
+
+    // Initialize start course button
+    initializeStartCourseButton();
 });
 
 // Countdown Timer Functionality
@@ -49,13 +52,9 @@ function initializeCountdown() {
 
 // Content Section Toggle Functionality
 function initializeContentSections() {
-    const contentHeaders = document.querySelectorAll('.content-header');
-
-    contentHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            toggleContent(this);
-        });
-    });
+    // The onclick attributes in HTML will handle the toggle functionality
+    // This function is kept for any additional initialization if needed
+    console.log('Content sections initialized');
 }
 
 function toggleContent(header) {
@@ -473,3 +472,147 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Start Course Button Functionality
+function initializeStartCourseButton() {
+    const startCourseBtn = document.querySelector('.start-course-btn');
+    if (!startCourseBtn) return;
+
+    startCourseBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Track the start course event
+        trackEvent('start_course', {
+            course_name: 'Complete Guide to Beekeeping',
+            course_id: 'beekeeping-complete'
+        });
+
+        // Show notification about redirecting to login
+        showNotification('Redirecting to login page...', 'info');
+
+        // Redirect to login page
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 1000);
+    });
+}
+
+function showNotification(message, type = 'info') {
+    // Create a simple toast notification
+    const toast = document.createElement('div');
+    toast.className = `toast-notification toast-${type}`;
+    toast.innerHTML = `
+        <div class="toast-content">
+            <i class="fas fa-${getToastIcon(type)}"></i>
+            <span>${message}</span>
+            <button class="toast-close">&times;</button>
+        </div>
+    `;
+
+    // Add toast styles if not already present
+    addToastStyles();
+
+    document.body.appendChild(toast);
+
+    // Show toast
+    setTimeout(() => toast.classList.add('show'), 100);
+
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+
+    // Manual close
+    toast.querySelector('.toast-close').addEventListener('click', () => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    });
+}
+
+function getToastIcon(type) {
+    const icons = {
+        success: 'check-circle',
+        error: 'exclamation-circle',
+        warning: 'exclamation-triangle',
+        info: 'info-circle'
+    };
+    return icons[type] || 'info-circle';
+}
+
+function addToastStyles() {
+    if (document.getElementById('toast-styles')) return;
+
+    const style = document.createElement('style');
+    style.id = 'toast-styles';
+    style.textContent = `
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 12px 16px;
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+            border-left: 4px solid #ccc;
+        }
+
+        .toast-notification.show {
+            transform: translateX(0);
+        }
+
+        .toast-success {
+            border-left-color: #28a745;
+        }
+
+        .toast-error {
+            border-left-color: #dc3545;
+        }
+
+        .toast-warning {
+            border-left-color: #ffc107;
+        }
+
+        .toast-info {
+            border-left-color: #17a2b8;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast-content i {
+            font-size: 1.1rem;
+        }
+
+        .toast-content span {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-close:hover {
+            color: #333;
+        }
+    `;
+    document.head.appendChild(style);
+}
