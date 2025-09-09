@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 <body>
     <!-- Header -->
@@ -61,6 +60,78 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu">
+            <div class="mobile-nav-header">
+                <a href="dashboard.html" class="mobile-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Pollen Patrol Academy</span>
+                </a>
+                <button class="mobile-nav-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-main-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="catalog.html"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> Community</a></li>
+                    <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-search-bar">
+                <input type="text" placeholder="Search beekeeping courses, techniques, or community...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="mobile-user-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="mobile-notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications (3)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-messages-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Messages (5)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-profile-btn">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-settings-btn">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-help-btn">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -82,44 +153,182 @@
         <div class="container">
             <!-- Welcome Section -->
             <section class="welcome-section">
-                <div class="welcome-content">
-                    <h1>Welcome back, Alex! 🐝</h1>
-                    <p>Continue your beekeeping journey where you left off</p>
-                    <div class="streak-counter">
-                        <i class="fas fa-fire"></i>
-                        <span>7 day beekeeping streak!</span>
+                <div class="welcome-hero">
+                    <div class="welcome-content">
+                        <div class="welcome-header">
+                            <h1>Welcome back, Alex! 🐝</h1>
+                            <p class="welcome-subtitle">Ready to continue your beekeeping journey?</p>
+                            <div class="welcome-meta">
+                                <span class="current-date">Today is <strong>December 15, 2024</strong></span>
+                                <span class="season-info">🌱 Spring Preparation Season</span>
+                            </div>
+                        </div>
+
+                        <div class="motivational-content">
+                            <div class="streak-counter">
+                                <div class="streak-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="streak-info">
+                                    <span class="streak-days">7</span>
+                                    <span class="streak-text">day beekeeping streak!</span>
+                                    <span class="streak-message">Keep up the amazing work! 🔥</span>
+                                </div>
+                            </div>
+
+                            <div class="daily-tip">
+                                <div class="tip-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <div class="tip-content">
+                                    <h4>Today's Beekeeping Tip</h4>
+                                    <p>"Check your hives for winter preparation. Ensure adequate food stores and proper ventilation."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="welcome-visual">
+                        <div class="weather-card">
+                            <div class="weather-header">
+                                <i class="fas fa-sun"></i>
+                                <span>Local Weather</span>
+                            </div>
+                            <div class="weather-info">
+                                <div class="temperature">22°C</div>
+                                <div class="weather-desc">Partly Cloudy</div>
+                                <div class="weather-details">
+                                    <span><i class="fas fa-tint"></i> 65%</span>
+                                    <span><i class="fas fa-wind"></i> 12 km/h</span>
+                                </div>
+                            </div>
+                            <div class="weather-note">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Good conditions for hive inspection</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="quick-stats">
-                    <div class="stat-card">
-                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=40&q=80" alt="Sample Hive Icon" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
-                        <div class="stat-icon">
-                            <i class="fas fa-clock"></i>
+
+                <div class="quick-stats-grid">
+                    <div class="stat-card primary">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+15%</span>
+                            </div>
                         </div>
-                        <div class="stat-info">
+                        <div class="stat-content">
                             <span class="stat-value">12.5h</span>
-                            <span class="stat-label">This Week</span>
+                            <span class="stat-label">Learning This Week</span>
+                            <span class="stat-progress">Goal: 15h</span>
+                        </div>
+                        <div class="stat-visual">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 83%"></div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="stat-card">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=40&q=80" alt="Sample Beekeeper Icon" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
-                        <div class="stat-icon">
-                            <i class="fas fa-trophy"></i>
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-hive"></i>
+                            </div>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+1</span>
+                            </div>
                         </div>
-                        <div class="stat-info">
+                        <div class="stat-content">
                             <span class="stat-value">6</span>
-                            <span class="stat-label">Hives</span>
+                            <span class="stat-label">Active Hives</span>
+                            <span class="stat-status">All Healthy</span>
+                        </div>
+                        <div class="stat-visual">
+                            <div class="hive-status">
+                                <span class="status-dot healthy"></span>
+                                <span class="status-dot healthy"></span>
+                                <span class="status-dot healthy"></span>
+                                <span class="status-dot healthy"></span>
+                                <span class="status-dot healthy"></span>
+                                <span class="status-dot healthy"></span>
+                            </div>
                         </div>
                     </div>
+
                     <div class="stat-card">
-                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=40&q=80" alt="Sample Certificate Icon" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-bottom: 8px;">
-                        <div class="stat-icon">
-                            <i class="fas fa-star"></i>
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+5%</span>
+                            </div>
                         </div>
-                        <div class="stat-info">
+                        <div class="stat-content">
                             <span class="stat-value">95%</span>
-                            <span class="stat-label">Completion</span>
+                            <span class="stat-label">Course Completion</span>
+                            <span class="stat-next">Next: Queen Rearing</span>
                         </div>
+                        <div class="stat-visual">
+                            <div class="completion-ring">
+                                <svg width="50" height="50">
+                                    <circle cx="25" cy="25" r="20" fill="none" stroke="#e0e0e0" stroke-width="3"/>
+                                    <circle cx="25" cy="25" r="20" fill="none" stroke="#28a745" stroke-width="3"
+                                            stroke-dasharray="126" stroke-dashoffset="6" transform="rotate(-90 25 25)"/>
+                                </svg>
+                                <span class="ring-text">95%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+3</span>
+                            </div>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-value">24</span>
+                            <span class="stat-label">Community Posts</span>
+                            <span class="stat-engagement">High Engagement</span>
+                        </div>
+                        <div class="stat-visual">
+                            <div class="engagement-meter">
+                                <div class="meter-fill high"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn primary">
+                            <i class="fas fa-play"></i>
+                            <span>Continue Learning</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Schedule Inspection</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-chart-line"></i>
+                            <span>View Analytics</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="fas fa-users"></i>
+                            <span>Join Discussion</span>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -132,7 +341,7 @@
                 </div>
                 <div class="course-recommendations">
                     <div class="recommendation-card primary">
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=80&q=80" alt="Sample Course Cover: Advanced Hive Management" class="course-cover" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; margin-right: 16px; float: left;">
+                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=80&q=80" alt="Sample Course Cover: Advanced Hive Management" class="course-cover">
                         <div class="course-progress">
                             <div class="progress-ring">
                                 <svg width="60" height="60">
@@ -155,7 +364,7 @@
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=80&q=80" alt="Sample Course Cover: Queen Rearing Masterclass" class="course-cover" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover; margin-right: 16px; float: left;">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=80&q=80" alt="Sample Course Cover: Queen Rearing Masterclass" class="course-cover">
                         <div class="course-badge">Recommended</div>
                         <div class="course-info">
                             <h3>Queen Rearing Masterclass</h3>
@@ -226,99 +435,67 @@
                     <h2><i class="fas fa-medal"></i> Achievements & Certifications</h2>
                     <a href="#" class="view-all">View All</a>
                 </div>
-                <div class="badges-grid">
-                    <div class="badge-card earned">
-                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Hive Master" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <h3>Hive Master</h3>
-                        <p>Completed Advanced Hive Management Course</p>
-                        <span class="earned-date">Earned 2 days ago</span>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Hive Management Expert</h3>
+                            <p>Successfully managed 5+ hives for 6 months</p>
+                            <div class="achievement-meta">
+                                <span><i class="fas fa-calendar"></i> Earned 2 weeks ago</span>
+                                <span><i class="fas fa-users"></i> 1.2k beekeepers have this</span>
+                            </div>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fas fa-star"></i>
+                        </div>
                     </div>
-                    <div class="badge-card earned">
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Beekeeping Streak" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <h3>Beekeeping Streak</h3>
-                        <p>7 consecutive days of hive management</p>
-                        <span class="earned-date">Earned today</span>
-                    </div>
-                    <div class="badge-card locked">
-                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Honey Producer" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <h3>Honey Producer</h3>
-                        <p>Harvest 50 lbs of honey</p>
-                        <span class="progress">35/50 lbs harvested</span>
-                    </div>
-                    <div class="badge-card locked">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=60&q=80" alt="Sample Achievement Badge: Community Helper" class="badge-img" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
-                        <h3>Community Helper</h3>
-                        <p>Help 50 other beekeepers</p>
-                        <span class="progress">23/50 helped</span>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Live Events Calendar -->
-            <section class="live-events">
-                <div class="section-header">
-                    <h2><i class="fas fa-calendar-alt"></i> Beekeeping Events & Deadlines</h2>
-                    <a href="#" class="view-all">View Calendar</a>
-                </div>
-                <div class="events-grid">
-                    <div class="event-card upcoming">
-                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=100&q=80" alt="Sample Beekeeping Event: Swarm Prevention Q&A" class="event-img" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 8px;">
-                        <div class="event-time">
-                            <span class="date">15</span>
-                            <span class="month">Dec</span>
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-seedling"></i>
                         </div>
-                        <div class="event-info">
-                            <h3>Live Q&A: Swarm Prevention Techniques</h3>
-                            <p>Join instructor Sarah Mitchell for live Q&A session</p>
-                            <div class="event-meta">
-                                <span><i class="fas fa-clock"></i> 2:00 PM EST</span>
-                                <span><i class="fas fa-users"></i> 156 attending</span>
+                        <div class="achievement-info">
+                            <h3>Pollination Champion</h3>
+                            <p>Enhanced crop yield by 40% through strategic hive placement</p>
+                            <div class="achievement-meta">
+                                <span><i class="fas fa-calendar"></i> Earned 1 month ago</span>
+                                <span><i class="fas fa-users"></i> 856 beekeepers have this</span>
                             </div>
-                            <button class="join-btn">Join Event</button>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="event-card deadline">
-                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=100&q=80" alt="Sample Beekeeping Event: Winter Hive Preparation" class="event-img" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 8px;">
-                        <div class="event-time urgent">
-                            <span class="date">18</span>
-                            <span class="month">Dec</span>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-honey-jar"></i>
                         </div>
-                        <div class="event-info">
-                            <h3>Winter Hive Preparation Due</h3>
-                            <p>Complete winter preparation checklist for all hives</p>
-                            <div class="event-meta">
-                                <span><i class="fas fa-exclamation-triangle"></i> 3 days left</span>
-                                <span><i class="fas fa-percentage"></i> 70% complete</span>
+                        <div class="achievement-info">
+                            <h3>Honey Production Master</h3>
+                            <p>Produced 50+ kg of premium honey in a single season</p>
+                            <div class="achievement-meta">
+                                <span><i class="fas fa-calendar"></i> Earned 3 months ago</span>
+                                <span><i class="fas fa-users"></i> 2.1k beekeepers have this</span>
                             </div>
-                            <button class="continue-btn">Continue Preparation</button>
                         </div>
-                    </div>
-                    <div class="event-card webinar">
-                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=100&q=80" alt="Sample Beekeeping Event: Business Workshop" class="event-img" style="width: 100px; height: 100px; border-radius: 8px; object-fit: cover; margin-bottom: 8px;">
-                        <div class="event-time">
-                            <span class="date">20</span>
-                            <span class="month">Dec</span>
-                        </div>
-                        <div class="event-info">
-                            <h3>Beekeeping Business Workshop</h3>
-                            <p>Learn how to market your honey and bee products</p>
-                            <div class="event-meta">
-                                <span><i class="fas fa-clock"></i> 7:00 PM EST</span>
-                                <span><i class="fas fa-users"></i> 89 attending</span>
-                            </div>
-                            <button class="rsvp-btn">RSVP</button>
+                        <div class="achievement-badge">
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Community Activity Feed -->
-            <section class="community-feed">
+            <section class="community-activity">
                 <div class="section-header">
-                    <h2><i class="fas fa-comments"></i> Community Activity</h2>
-                    <a href="#" class="view-all">View All Posts</a>
+                    <h2><i class="fas fa-users"></i> Community Activity</h2>
+                    <a href="community.html" class="view-all">View All</a>
                 </div>
-                <div class="feed-container">
+                <div class="activity-grid">
                     <div class="activity-card">
                         <div class="user-avatar">
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sample Community Member: Maria Rodriguez">
@@ -463,5 +640,814 @@
     <script src="js/notifications.js"></script>
     <script src="js/messages.js"></script>
     <script>window.addEventListener('DOMContentLoaded', function() { new DashboardManager(); });</script>
+
+    <style>
+        /* Responsive Title Text Sizing */
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-yellow);
+            transition: font-size 0.3s ease;
+        }
+
+        @media (max-width: 1200px) {
+            .logo span {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .logo span {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo span {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo span {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Enhanced Welcome Section Styles */
+        .welcome-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .welcome-hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #facc4c 0%, #f4c035 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .welcome-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .current-date, .season-info {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #495057;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .motivational-content {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .streak-counter {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .streak-icon i {
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .streak-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .streak-days {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .streak-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .streak-message {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .daily-tip {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #facc4c;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tip-icon {
+            color: #facc4c;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-content h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .tip-content p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .welcome-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .weather-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .weather-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .weather-header i {
+            color: #facc4c;
+            font-size: 1.2rem;
+        }
+
+        .temperature {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-desc {
+            color: #6c757d;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .weather-details {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .weather-note {
+            background: #e3f2fd;
+            padding: 0.5rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            color: #1976d2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Quick Stats Grid */
+        .quick-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-card.primary {
+            border-left: 4px solid #facc4c;
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3d1 100%);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #facc4c 0%, #f4c035 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+        }
+
+        .stat-trend.positive {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .stat-content {
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            display: block;
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-progress, .stat-status, .stat-next, .stat-engagement {
+            font-size: 0.8rem;
+            color: #28a745;
+            font-weight: 500;
+        }
+
+        .stat-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #facc4c 0%, #f4c035 100%);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .hive-status {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .status-dot.healthy {
+            background: #28a745;
+        }
+
+        .completion-ring {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ring-text {
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        .engagement-meter {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .meter-fill.high {
+            width: 85%;
+            height: 100%;
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+            border-radius: 4px;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .quick-actions h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e9ecef;
+            background: white;
+            color: #6c757d;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            border-color: #facc4c;
+            color: #facc4c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(250, 204, 76, 0.2);
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #facc4c 0%, #f4c035 100%);
+            color: white;
+            border-color: #facc4c;
+        }
+
+        .action-btn.primary:hover {
+            background: linear-gradient(135deg, #f4c035 0%, #facc4c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(250, 204, 76, 0.4);
+        }
+
+        .action-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .welcome-section {
+                padding: 1.5rem;
+            }
+
+            .welcome-hero {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .welcome-header h1 {
+                font-size: 2rem;
+            }
+
+            .motivational-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .daily-tip {
+                min-width: auto;
+            }
+
+            .quick-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-section {
+                padding: 1rem;
+            }
+
+            .welcome-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            .action-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .mobile-nav-menu.active {
+            left: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-logo i {
+            color: #FFC727;
+            font-size: 1.5rem;
+        }
+
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-main-nav li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-main-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-main-nav a:hover,
+        .mobile-main-nav a.active {
+            background-color: #f8f9fa;
+            color: #FFC727;
+        }
+
+        .mobile-main-nav i {
+            width: 20px;
+            text-align: center;
+            color: #FFC727;
+        }
+
+        .mobile-search-bar {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .mobile-search-bar button {
+            width: 100%;
+            padding: 12px;
+            background: #FFC727;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .mobile-user-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-user-nav li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-user-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-user-nav a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .mobile-user-nav i {
+            width: 20px;
+            text-align: center;
+            color: #FFC727;
+        }
+
+        .mobile-notification-btn {
+            color: #007bff !important;
+        }
+
+        .mobile-messages-btn {
+            color: #28a745 !important;
+        }
+
+        .mobile-profile-btn {
+            color: #6f42c1 !important;
+        }
+
+        .mobile-settings-btn {
+            color: #fd7e14 !important;
+        }
+
+        .mobile-help-btn {
+            color: #20c997 !important;
+        }
+
+        .mobile-logout-btn {
+            color: #dc3545 !important;
+        }
+
+        /* Mobile Navigation Responsive Rules */
+        @media (max-width: 768px) {
+            /* Show mobile toggle, hide desktop nav */
+            .mobile-nav-toggle {
+                display: flex;
+            }
+
+            .main-nav,
+            .search-bar,
+            .user-nav {
+                display: none;
+            }
+
+            /* Ensure mobile menu is properly positioned */
+            .mobile-nav-menu {
+                display: block;
+                left: -100%;
+            }
+
+            .mobile-nav-menu.active {
+                left: 0;
+            }
+
+            /* Adjust header layout for mobile */
+            .main-header .container {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                flex: 1;
+            }
+        }
+
+        /* Desktop Navigation Rules */
+        @media (min-width: 769px) {
+            /* Hide mobile elements on desktop */
+            .mobile-nav-toggle,
+            .mobile-nav-menu {
+                display: none;
+            }
+
+            /* Show desktop navigation */
+            .main-nav,
+            .search-bar,
+            .user-nav {
+                display: flex;
+            }
+
+            /* Ensure proper header layout */
+            .main-header .container {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+            const mobileNavClose = document.querySelector('.mobile-nav-close');
+
+            if (!mobileNavToggle || !mobileNavMenu) {
+                console.log('Mobile navigation elements not found');
+                return;
+            }
+
+            // Toggle mobile navigation
+            mobileNavToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNavMenu.classList.toggle('active');
+                document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : 'auto';
+            });
+
+            // Close mobile navigation
+            mobileNavClose.addEventListener('click', function() {
+                mobileNavToggle.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close mobile navigation when clicking on a link
+            document.querySelectorAll('.mobile-main-nav a, .mobile-user-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // Close mobile navigation when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.main-header') && !e.target.closest('.mobile-nav-menu')) {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close mobile navigation on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close mobile navigation when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

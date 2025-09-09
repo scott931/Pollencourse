@@ -29,7 +29,6 @@ class DashboardManager {
             this.createWeeklyProgressChart();
             this.createCategoryChart();
             this.createSkillRadarChart();
-            this.createTimeDistributionChart();
         } catch (error) {
             console.error('Error initializing charts:', error);
         }

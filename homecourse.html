@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Complete Guide to Beekeeping: From Beginner to Professional Beekeeper - Pollen Patrol Academy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,58 @@
                     </ul>
                 </nav>
             </div>
+
+            <!-- Mobile Navigation Toggle -->
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="mobile-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Pollen Patrol Academy</span>
+                </a>
+                <button class="mobile-nav-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-search-bar">
+                <input type="text" placeholder="Search for anything">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="mobile-user-nav">
+                <ul>
+                    <li>
+                        <a href="login.html" class="mobile-login-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Login</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="register.html" class="mobile-register-btn">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Register</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="catalog.html" class="mobile-catalog-link">
+                            <i class="fas fa-book"></i>
+                            <span>Course Catalog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="community.html" class="mobile-community-link">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -77,6 +129,11 @@
     <!-- Main Content -->
     <main class="course-catalog">
         <div class="container">
+            <!-- Mobile Sidebar Toggle -->
+            <button class="mobile-sidebar-toggle" onclick="toggleMobileSidebar()">
+                <i class="fas fa-bars"></i>
+                Course Info
+            </button>
             <div class="main-content">
                 <!-- What You'll Learn Section -->
                 <section class="content-section" data-aos="fade-up">
@@ -890,6 +947,11 @@
 
             <!-- Sticky Sidebar -->
             <div class="course-sidebar">
+                <!-- Mobile Close Button -->
+                <button class="sidebar-close" onclick="closeMobileSidebar()">
+                    <i class="fas fa-times"></i>
+                </button>
+
                 <div class="course-preview" onclick="previewCourse()">
                     <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=340&h=200&q=80" alt="Course Preview">
                     <div class="preview-overlay">
@@ -1021,5 +1083,1064 @@
     <script src="js/auth.js"></script>
     <script src="js/notifications.js"></script>
     <script src="js/messages.js"></script>
+
+    <style>
+        /* Logo and Title Optimization */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            flex-shrink: 0;
+            min-width: 0;
+        }
+
+        .logo i {
+            color: #FFC727;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .logo span {
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+
+        /* Responsive Title Text Sizing */
+        @media (max-width: 1200px) {
+            .logo span {
+                max-width: 150px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .logo span {
+                max-width: 120px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo span {
+                max-width: 100px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo span {
+                max-width: 80px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            /* Header Mobile Styles */
+            .main-header {
+                padding: 15px 0;
+            }
+
+            .header-actions {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .search-bar {
+                width: 100%;
+                order: 2;
+            }
+
+            .user-nav {
+                order: 1;
+            }
+
+            .start-course-btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            /* Hero Section Mobile */
+            .course-hero {
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .hero-bee-image {
+                height: 200px;
+                margin-bottom: 20px;
+            }
+
+            .course-hero-content {
+                padding: 0 20px;
+            }
+
+            .course-title {
+                font-size: 1.8rem;
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+
+            .course-subtitle {
+                font-size: 1rem;
+                line-height: 1.5;
+                padding: 0 10px;
+            }
+
+            .course-stats {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .course-meta-info {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            /* Main Content Mobile */
+            .main-content {
+                width: 100%;
+                padding: 20px 15px;
+            }
+
+            .content-section {
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            /* Course Content Mobile */
+            .course-content {
+                margin-bottom: 20px;
+            }
+
+            .content-header {
+                padding: 15px;
+                cursor: pointer;
+            }
+
+            .content-header h4 {
+                font-size: 1.1rem;
+            }
+
+            .content-items {
+                padding: 0 15px 15px;
+            }
+
+            .content-item {
+                padding: 12px 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .content-item-title {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .content-item-duration {
+                font-size: 0.8rem;
+                color: #666;
+            }
+
+            /* Learning Objectives Mobile */
+            .learning-objectives {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .learning-item {
+                padding: 15px;
+                font-size: 0.9rem;
+            }
+
+            /* Requirements List Mobile */
+            .requirements-list {
+                padding-left: 20px;
+            }
+
+            .requirements-list li {
+                margin-bottom: 10px;
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+
+            /* Instructor Profile Mobile */
+            .instructor-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .instructor-avatar {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+            }
+
+            .instructor-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .instructor-stat {
+                font-size: 0.9rem;
+            }
+
+            /* Course Cards Mobile */
+            .students-also-bought {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .course-card {
+                padding: 15px;
+            }
+
+            .course-image {
+                height: 120px;
+            }
+
+            .course-info {
+                padding: 15px 0 0;
+            }
+
+            .course-title {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            /* Related Courses Mobile */
+            .related-courses {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .related-course-card {
+                padding: 15px;
+            }
+
+            /* Reviews Mobile */
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .review-item {
+                padding: 20px;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+
+            .helpful-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .helpful-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* Sidebar Mobile */
+            .course-sidebar {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                z-index: 1000;
+                transition: right 0.3s ease;
+                background: white;
+                overflow-y: auto;
+            }
+
+            .course-sidebar.active {
+                right: 0;
+            }
+
+            .sidebar-content {
+                width: 100%;
+                height: 100%;
+                padding: 80px 20px 20px;
+            }
+
+            .sidebar-close {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                font-size: 24px;
+                color: #333;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            .pricing-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .pricing-tab {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .sidebar-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .add-to-cart-btn,
+            .buy-now-btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 1rem;
+            }
+
+            .sidebar-links {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .coupon-input {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .coupon-input input {
+                width: 100%;
+                padding: 12px;
+            }
+
+            .coupon-input button {
+                width: 100%;
+                padding: 12px;
+            }
+
+            /* Footer Mobile */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-section ul {
+                padding-left: 0;
+            }
+
+            .footer-section li {
+                margin-bottom: 8px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Mobile Sidebar Toggle */
+            .mobile-sidebar-toggle {
+                display: block;
+                width: 100%;
+                padding: 15px;
+                background: #FFC727;
+                color: #111;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-sidebar-toggle:hover {
+                background: #ffb300;
+                transform: translateY(-2px);
+            }
+
+            .mobile-sidebar-toggle i {
+                margin-right: 10px;
+            }
+
+            /* Hide desktop sidebar on mobile */
+            .course-sidebar {
+                display: none;
+            }
+
+            .course-sidebar.active {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra Small Mobile Styles */
+            .main-header {
+                padding: 10px 0;
+            }
+
+            .course-hero {
+                padding: 30px 0;
+            }
+
+            .course-title {
+                font-size: 1.6rem;
+                line-height: 1.2;
+            }
+
+            .course-subtitle {
+                font-size: 0.9rem;
+                padding: 0 5px;
+            }
+
+            .course-stats {
+                gap: 10px;
+            }
+
+            .rating-display {
+                flex-direction: column;
+                gap: 5px;
+                align-items: center;
+            }
+
+            .enrollment-count {
+                font-size: 0.9rem;
+            }
+
+            .course-meta-info {
+                font-size: 0.8rem;
+            }
+
+            .main-content {
+                padding: 15px 10px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+
+            .content-header {
+                padding: 12px;
+            }
+
+            .content-header h4 {
+                font-size: 1rem;
+            }
+
+            .content-items {
+                padding: 0 10px 12px;
+            }
+
+            .content-item {
+                padding: 10px 0;
+            }
+
+            .content-item-title {
+                font-size: 0.85rem;
+            }
+
+            .content-item-duration {
+                font-size: 0.75rem;
+            }
+
+            .learning-item {
+                padding: 12px;
+                font-size: 0.85rem;
+            }
+
+            .requirements-list li {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+            }
+
+            .instructor-avatar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .instructor-name {
+                font-size: 1.2rem;
+            }
+
+            .instructor-title {
+                font-size: 0.9rem;
+            }
+
+            .instructor-stat {
+                font-size: 0.8rem;
+            }
+
+            .course-card {
+                padding: 12px;
+            }
+
+            .course-image {
+                height: 100px;
+            }
+
+            .course-title {
+                font-size: 0.9rem;
+            }
+
+            .course-rating {
+                font-size: 0.8rem;
+            }
+
+            .course-meta {
+                font-size: 0.8rem;
+            }
+
+            .course-price {
+                font-size: 1rem;
+            }
+
+            .related-course-card {
+                padding: 12px;
+            }
+
+            .related-course-title {
+                font-size: 0.9rem;
+            }
+
+            .review-item {
+                padding: 15px;
+            }
+
+            .reviewer-name {
+                font-size: 0.9rem;
+            }
+
+            .review-text {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+
+            .review-date {
+                font-size: 0.8rem;
+            }
+
+            .helpful-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            /* Sidebar Mobile Small */
+            .sidebar-content {
+                padding: 70px 15px 15px;
+            }
+
+            .pricing-tab {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+
+            .current-price {
+                font-size: 1.5rem;
+            }
+
+            .original-price {
+                font-size: 0.9rem;
+            }
+
+            .add-to-cart-btn,
+            .buy-now-btn {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            .guarantee-info {
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+            .sidebar-link {
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+
+            .coupon-input input {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .coupon-input button {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .cancel-policy {
+                font-size: 0.8rem;
+                text-align: center;
+            }
+
+            /* Footer Mobile Small */
+            .footer-section h4 {
+                font-size: 1.1rem;
+            }
+
+            .footer-section li {
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+            }
+
+            /* Mobile Sidebar Toggle Small */
+            .mobile-sidebar-toggle {
+                padding: 12px;
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .mobile-sidebar-toggle i {
+                margin-right: 8px;
+            }
+        }
+
+        /* Hide mobile toggle on desktop */
+        .mobile-sidebar-toggle {
+            display: none;
+        }
+
+        /* Additional Mobile Enhancements */
+        @media (max-width: 768px) {
+            /* Ensure proper spacing for mobile */
+            .breadcrumbs {
+                flex-wrap: wrap;
+                gap: 8px;
+                justify-content: center;
+                font-size: 0.8rem;
+            }
+
+            .breadcrumbs span {
+                margin: 0 4px;
+            }
+
+            /* Improve button touch targets */
+            .expand-all-btn,
+            .show-more-btn,
+            .show-all-reviews-btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 1rem;
+                margin: 15px 0;
+            }
+
+            /* Better spacing for course sections */
+            .content-section {
+                margin-bottom: 40px;
+            }
+
+            /* Improve form elements on mobile */
+            input, select, textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            /* Better table responsiveness */
+            table {
+                font-size: 0.8rem;
+            }
+
+            th, td {
+                padding: 8px 4px;
+            }
+
+            /* Improve image responsiveness */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Better spacing for lists */
+            ul, ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 8px;
+            }
+        }
+
+        /* Mobile Navigation Styles */
+        .mobile-nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .mobile-nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-menu.active {
+            left: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .mobile-logo i {
+            color: #FFC727;
+            font-size: 1.5rem;
+        }
+
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-search-bar {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .mobile-search-bar button {
+            width: 100%;
+            padding: 12px;
+            background: #FFC727;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .mobile-user-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-user-nav li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-user-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-user-nav a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .mobile-user-nav i {
+            width: 20px;
+            text-align: center;
+            color: #FFC727;
+        }
+
+        .mobile-login-btn {
+            color: #007bff !important;
+        }
+
+        .mobile-register-btn {
+            color: #28a745 !important;
+        }
+
+        .mobile-catalog-link {
+            color: #6f42c1 !important;
+        }
+
+        .mobile-community-link {
+            color: #fd7e14 !important;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: flex;
+            }
+
+            .header-actions {
+                display: none !important;
+            }
+
+            .mobile-nav-menu.active {
+                left: 0;
+            }
+
+            /* Ensure mobile navigation is properly positioned */
+            .mobile-nav-menu {
+                display: block;
+            }
+        }
+
+        /* Ensure desktop navigation is visible on larger screens */
+        @media (min-width: 769px) {
+            .mobile-nav-toggle {
+                display: none !important;
+            }
+
+            .mobile-nav-menu {
+                display: none !important;
+            }
+
+            .header-actions {
+                display: flex !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small mobile optimizations */
+            .breadcrumbs {
+                font-size: 0.7rem;
+                gap: 6px;
+            }
+
+            .expand-all-btn,
+            .show-more-btn,
+            .show-all-reviews-btn {
+                padding: 12px;
+                font-size: 0.9rem;
+                margin: 10px 0;
+            }
+
+            .content-section {
+                margin-bottom: 30px;
+            }
+
+            /* Improve readability on very small screens */
+            body {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                line-height: 1.3;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile Sidebar Toggle Function
+        function toggleMobileSidebar() {
+            const sidebar = document.querySelector('.course-sidebar');
+            sidebar.classList.toggle('active');
+
+            // Prevent body scroll when sidebar is open
+            if (sidebar.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close mobile sidebar function
+        function closeMobileSidebar() {
+            const sidebar = document.querySelector('.course-sidebar');
+            sidebar.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            const sidebar = document.querySelector('.course-sidebar');
+            const mobileToggle = document.querySelector('.mobile-sidebar-toggle');
+
+            if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close sidebar on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const sidebar = document.querySelector('.course-sidebar');
+                sidebar.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close sidebar when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const sidebar = document.querySelector('.course-sidebar');
+                if (sidebar.classList.contains('active')) {
+                    closeMobileSidebar();
+                }
+            }
+        });
+
+        // Enhanced touch support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const sidebar = document.querySelector('.course-sidebar');
+            const swipeThreshold = 50;
+
+            if (sidebar.classList.contains('active')) {
+                // Swipe right to close sidebar
+                if (touchEndX - touchStartX > swipeThreshold) {
+                    closeMobileSidebar();
+                }
+            }
+        }
+
+        // Mobile Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+            const mobileNavClose = document.querySelector('.mobile-nav-close');
+
+            if (!mobileNavToggle || !mobileNavMenu) {
+                console.log('Mobile navigation elements not found');
+                return;
+            }
+
+            // Toggle mobile navigation
+            mobileNavToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNavMenu.classList.toggle('active');
+            document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Close mobile navigation
+        mobileNavClose.addEventListener('click', function() {
+            mobileNavToggle.classList.remove('active');
+            mobileNavMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close mobile navigation when clicking on a link
+        document.querySelectorAll('.mobile-user-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavToggle.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close mobile navigation when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.main-header') && !e.target.closest('.mobile-nav-menu')) {
+                mobileNavToggle.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close mobile navigation on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                mobileNavToggle.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+            // Close mobile navigation when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
