@@ -40,6 +40,19 @@
     gap: 8px;
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(164, 53, 240, 0.3);
+    min-height: 44px;
+    touch-action: manipulation;
+}
+
+.start-course-btn:hover {
+    background: linear-gradient(135deg, #8b2fd9 0%, #7a2bc7 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(164, 53, 240, 0.4);
+}
+
+.start-course-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(164, 53, 240, 0.3);
 }
 
 /* Course Preview Video Section */
@@ -307,19 +320,6 @@
     color: var(--text-dark);
 }
 
-.start-course-btn:hover {
-    background: linear-gradient(135deg, #8b2fd9 0%, #7a2bc7 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(164, 53, 240, 0.4);
-}
-
-.start-course-btn:active {
-    transform: translateY(0);
-}
-
-.start-course-btn i {
-    font-size: 0.8rem;
-}
 
 .main-header .container {
     display: flex;
@@ -332,21 +332,31 @@
 .logo {
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-yellow);
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f4c035 !important;
     text-decoration: none;
     transition: color 0.2s ease;
-    margin-right: 16px;
+    flex-shrink: 0;
 }
 
 .logo:hover {
-    color: var(--primary-yellow-hover);
+    color: #d4a02a;
 }
 
 .logo i {
-    margin-right: 8px;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+    color: #f4c035 !important;
+    flex-shrink: 0;
+}
+
+.logo span {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    white-space: nowrap;
 }
 
 .main-nav ul {
@@ -1622,23 +1632,436 @@
     }
 }
 
+/* Mobile Navigation Toggle Button */
+.mobile-nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+    background: none;
+    border: none;
+    position: relative;
+}
+
+/* Show mobile nav toggle on mobile devices */
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: flex !important;
+    }
+}
+
+.mobile-nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-nav-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-nav-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Login Button - Floating Design */
+.mobile-login-button {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 20px !important;
+    background: linear-gradient(135deg, #A435F0 0%, #8b2fd9 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 18px 24px !important;
+    border-radius: 50px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: none !important; /* Hidden by default, shown on mobile */
+    align-items: center !important;
+    gap: 10px !important;
+    box-shadow: 0 8px 25px rgba(164, 53, 240, 0.5) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 9999 !important;
+    text-decoration: none !important;
+    min-width: auto !important;
+    max-width: 280px !important;
+    justify-content: center !important;
+    backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: float 3s ease-in-out infinite, pulse-glow 2s ease-in-out infinite !important;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Pulsing glow effect */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(164, 53, 240, 0.5);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(164, 53, 240, 0.8), 0 0 20px rgba(164, 53, 240, 0.3);
+    }
+}
+
+
+.mobile-login-button:hover {
+    background: linear-gradient(135deg, #8b2fd9 0%, #7a2bc7 100%) !important;
+    transform: translateY(-8px) scale(1.05) !important;
+    box-shadow: 0 12px 35px rgba(164, 53, 240, 0.6) !important;
+    color: white !important;
+    text-decoration: none !important;
+    animation: none !important;
+}
+
+.mobile-login-button:active {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 0 6px 20px rgba(164, 53, 240, 0.4) !important;
+}
+
+.mobile-login-button i {
+    font-size: 1rem;
+}
+
+.mobile-login-button span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Mobile responsive adjustments for floating button */
+@media (max-width: 480px) {
+    .mobile-login-button {
+        bottom: 20px !important;
+        right: 15px !important;
+        padding: 16px 20px !important;
+        font-size: 0.9rem !important;
+        max-width: 250px !important;
+        border-radius: 45px !important;
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: linear-gradient(135deg, #A435F0 0%, #8b2fd9 100%) !important;
+        border: 3px solid #fff !important;
+        box-shadow: 0 0 25px rgba(164, 53, 240, 1) !important;
+    }
+
+    .mobile-login-button i {
+        font-size: 0.9rem !important;
+    }
+
+    .mobile-login-button span {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Ultra-small screens */
+@media (max-width: 360px) {
+    .mobile-login-button {
+        bottom: 15px !important;
+        right: 10px !important;
+        padding: 14px 18px !important;
+        font-size: 0.85rem !important;
+        max-width: 220px !important;
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: linear-gradient(135deg, #A435F0 0%, #8b2fd9 100%) !important;
+        border: 3px solid #fff !important;
+        box-shadow: 0 0 30px rgba(164, 53, 240, 1) !important;
+    }
+
+    .mobile-login-button span {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Show mobile login button on mobile devices */
+@media (max-width: 768px) {
+    .mobile-login-button {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: fixed !important;
+        z-index: 9999 !important;
+        background: linear-gradient(135deg, #A435F0 0%, #8b2fd9 100%) !important;
+        border: 3px solid #fff !important;
+        box-shadow: 0 0 20px rgba(164, 53, 240, 0.8) !important;
+    }
+}
+
+/* Hide mobile login button on desktop */
+@media (min-width: 769px) {
+    .mobile-login-button {
+        display: none !important;
+    }
+}
+
+/* Mobile Navigation Menu Styles */
+.mobile-nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    backdrop-filter: blur(20px);
+    z-index: 1001;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.mobile-nav-menu.active {
+    left: 0;
+    display: block;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f4c035;
+    text-decoration: none;
+    gap: 8px;
+}
+
+.mobile-logo i {
+    font-size: 1.3rem;
+}
+
+.mobile-nav-close {
+    background: var(--udemy-purple);
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(164, 53, 240, 0.3);
+    z-index: 1003;
+}
+
+.mobile-nav-close:hover {
+    background: var(--udemy-purple-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(164, 53, 240, 0.4);
+}
+
+.mobile-nav-close:active {
+    transform: scale(0.95);
+}
+
+.mobile-nav-close i {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.mobile-search-bar {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-search-bar .search-input-container {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-search-bar input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.mobile-search-bar input::placeholder {
+    color: #999;
+}
+
+.mobile-search-bar button {
+    padding: 12px 15px;
+    background: #f4c035;
+    border: none;
+    color: #111;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.mobile-search-bar button:hover {
+    background: #d4a02a;
+}
+
+.mobile-user-nav {
+    padding: 20px;
+}
+
+.mobile-user-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-user-nav li {
+    margin-bottom: 8px;
+}
+
+.mobile-user-nav a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.mobile-user-nav a:hover {
+    background: rgba(244, 192, 53, 0.1);
+    color: #f4c035;
+    transform: translateX(5px);
+}
+
+.mobile-user-nav a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.mobile-login-btn {
+    background: linear-gradient(135deg, #f4c035, #d4a02a);
+    color: #111 !important;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(244, 192, 53, 0.3);
+}
+
+.mobile-login-btn:hover {
+    background: linear-gradient(135deg, #d4a02a, #b8941f);
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 192, 53, 0.4);
+    color: #111 !important;
+}
+
+.mobile-register-btn {
+    background: rgba(244, 192, 53, 0.1);
+    color: #f4c035 !important;
+    border: 1px solid #f4c035;
+}
+
+.mobile-register-btn:hover {
+    background: #f4c035;
+    color: #111 !important;
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 4px 15px rgba(244, 192, 53, 0.3);
+}
+
+.mobile-catalog-link,
+.mobile-community-link {
+    background: rgba(164, 53, 240, 0.1);
+    color: var(--udemy-purple) !important;
+}
+
+.mobile-catalog-link:hover,
+.mobile-community-link:hover {
+    background: var(--udemy-purple);
+    color: white !important;
+    transform: translateX(5px) translateY(-2px);
+    box-shadow: 0 4px 15px rgba(164, 53, 240, 0.3);
+}
+
+/* Mobile Navigation Backdrop */
+.mobile-nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 @media (max-width: 768px) {
     .main-header .container {
-        flex-wrap: wrap;
-        gap: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 0 var(--space-md);
+    }
+
+    .mobile-nav-toggle {
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    .header-actions {
+        display: none !important;
+    }
+
+    .logo {
+        font-size: 0.95rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .logo span {
+        font-size: 0.9rem;
+        white-space: nowrap;
     }
 
     .start-course-btn {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-    }
-
-    .start-course-btn span {
-        display: none;
-    }
-
-    .start-course-btn i {
-        font-size: 0.9rem;
+        display: none; /* Hide desktop button on mobile */
     }
 
     .course-preview-video {
@@ -1737,6 +2160,17 @@
 @media (max-width: 480px) {
     .container {
         padding: 0 16px;
+    }
+
+    .logo {
+        font-size: 0.85rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .logo span {
+        font-size: 0.8rem;
+        white-space: nowrap;
     }
 
     .search-bar {
@@ -1889,5 +2323,840 @@ select:focus,
     :root {
         --border-color: #000000;
         --text-light: #000000;
+    }
+}
+
+/* ========================================
+   COMPREHENSIVE MOBILE RESPONSIVENESS
+   ======================================== */
+
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
+    /* General Mobile Optimizations */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Header Mobile Optimizations */
+    .main-header {
+        height: auto;
+        min-height: 60px;
+        padding: 10px 0;
+    }
+
+    .main-header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 0 var(--space-md);
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-size: 0.95rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .logo span {
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    .header-actions {
+        display: none !important;
+    }
+
+    .start-course-btn {
+        display: none;
+    }
+
+    /* Course Hero Mobile */
+    .course-hero {
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .hero-bee-image {
+        height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .course-hero-content {
+        padding: 0 var(--space-md);
+    }
+
+    .course-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .course-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .course-stats {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .rating-display {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .course-meta-info {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+
+    /* Main Content Mobile */
+    .main-content {
+        width: 100%;
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .content-section {
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    /* Learning Objectives Mobile */
+    .learning-objectives {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .learning-item {
+        padding: 15px;
+        font-size: 0.9rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* Course Includes Mobile */
+    .course-includes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .include-item {
+        padding: 15px;
+        font-size: 0.9rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* Course Content Mobile */
+    .course-content {
+        margin-bottom: 20px;
+    }
+
+    .content-header {
+        padding: 15px;
+        cursor: pointer;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .content-header h4 {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .content-items {
+        padding: 0 15px 15px;
+    }
+
+    .content-item {
+        padding: 12px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .content-item-title {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        flex: 1;
+    }
+
+    .content-item-duration {
+        font-size: 0.8rem;
+        color: #666;
+        flex-shrink: 0;
+    }
+
+    /* Requirements Mobile */
+    .requirements-list {
+        padding-left: 20px;
+    }
+
+    .requirements-list li {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Description Mobile */
+    .course-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .show-more-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        margin: 15px 0;
+        min-height: 44px;
+    }
+
+    /* Instructor Profile Mobile */
+    .instructor-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .instructor-avatar {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .instructor-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .instructor-stat {
+        font-size: 0.9rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* Course Cards Mobile */
+    .students-also-bought {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .course-card {
+        padding: 15px;
+        min-height: 44px;
+    }
+
+    .course-image {
+        height: 120px;
+    }
+
+    .course-info {
+        padding: 15px 0 0;
+    }
+
+    .course-title {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    /* Related Courses Mobile */
+    .related-courses {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .related-course-card {
+        padding: 15px;
+        min-height: 44px;
+    }
+
+    /* Reviews Mobile */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .review-item {
+        padding: 20px;
+    }
+
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .helpful-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .helpful-btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+    }
+
+    /* Sidebar Mobile */
+    .course-sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        z-index: 1000;
+        transition: right 0.3s ease;
+        background: white;
+        overflow-y: auto;
+    }
+
+    .course-sidebar.active {
+        right: 0;
+    }
+
+    .sidebar-content {
+        width: 100%;
+        height: 100%;
+        padding: 80px 20px 20px;
+    }
+
+    .pricing-tabs {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pricing-tab {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        min-height: 44px;
+    }
+
+    .sidebar-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .add-to-cart-btn,
+    .buy-now-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+
+    .sidebar-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .sidebar-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .coupon-input {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .coupon-input input {
+        width: 100%;
+        padding: 12px;
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    .coupon-input button {
+        width: 100%;
+        padding: 12px;
+        min-height: 44px;
+    }
+
+    /* Mobile Sidebar Toggle */
+    .mobile-sidebar-toggle {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: #FFC727;
+        color: #111;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-height: 44px;
+    }
+
+    .mobile-sidebar-toggle:hover {
+        background: #ffb300;
+        transform: translateY(-2px);
+    }
+
+    .mobile-sidebar-toggle i {
+        margin-right: 10px;
+    }
+
+    /* Hide desktop sidebar on mobile */
+    .course-sidebar {
+        display: none;
+    }
+
+    .course-sidebar.active {
+        display: block;
+    }
+
+    /* Footer Mobile */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-section ul {
+        padding-left: 0;
+    }
+
+    .footer-section li {
+        margin-bottom: 8px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Breadcrumbs Mobile */
+    .breadcrumbs {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+
+    .breadcrumbs span {
+        margin: 0 4px;
+    }
+
+    /* Button Mobile Optimizations */
+    .expand-all-btn,
+    .show-more-btn,
+    .show-all-reviews-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        margin: 15px 0;
+        min-height: 44px;
+    }
+
+    /* Form Elements Mobile */
+    input, select, textarea {
+        font-size: 16px;
+        min-height: 44px;
+        padding: 12px;
+    }
+
+    /* Touch Optimizations */
+    button, .content-header, .sidebar-link {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Overflow Handling */
+    .main-content {
+        overflow-x: hidden;
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 8px 0;
+    }
+
+    .main-header .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .logo {
+        font-size: 0.85rem;
+    }
+
+    .logo span {
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    .course-hero {
+        padding: 25px 0;
+    }
+
+    .course-title {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .course-subtitle {
+        font-size: 0.9rem;
+        padding: 0 5px;
+    }
+
+    .course-stats {
+        gap: 10px;
+    }
+
+    .rating-display {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+
+    .enrollment-count {
+        font-size: 0.9rem;
+    }
+
+    .course-meta-info {
+        font-size: 0.8rem;
+    }
+
+    .main-content {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .content-header {
+        padding: 12px;
+    }
+
+    .content-header h4 {
+        font-size: 1rem;
+    }
+
+    .content-items {
+        padding: 0 10px 12px;
+    }
+
+    .content-item {
+        padding: 10px 0;
+    }
+
+    .content-item-title {
+        font-size: 0.85rem;
+    }
+
+    .content-item-duration {
+        font-size: 0.75rem;
+    }
+
+    .learning-item {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .requirements-list li {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .instructor-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .instructor-name {
+        font-size: 1.2rem;
+    }
+
+    .instructor-title {
+        font-size: 0.9rem;
+    }
+
+    .instructor-stat {
+        font-size: 0.8rem;
+    }
+
+    .course-card {
+        padding: 12px;
+    }
+
+    .course-image {
+        height: 100px;
+    }
+
+    .course-title {
+        font-size: 0.9rem;
+    }
+
+    .course-rating {
+        font-size: 0.8rem;
+    }
+
+    .course-meta {
+        font-size: 0.8rem;
+    }
+
+    .course-price {
+        font-size: 1rem;
+    }
+
+    .related-course-card {
+        padding: 12px;
+    }
+
+    .related-course-title {
+        font-size: 0.9rem;
+    }
+
+    .review-item {
+        padding: 15px;
+    }
+
+    .reviewer-name {
+        font-size: 0.9rem;
+    }
+
+    .review-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .review-date {
+        font-size: 0.8rem;
+    }
+
+    .helpful-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .sidebar-content {
+        padding: 70px 15px 15px;
+    }
+
+    .pricing-tab {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    .current-price {
+        font-size: 1.5rem;
+    }
+
+    .original-price {
+        font-size: 0.9rem;
+    }
+
+    .add-to-cart-btn,
+    .buy-now-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .guarantee-info {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .sidebar-link {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .coupon-input input {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .coupon-input button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .cancel-policy {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .footer-section h4 {
+        font-size: 1.1rem;
+    }
+
+    .footer-section li {
+        font-size: 0.85rem;
+        margin-bottom: 6px;
+    }
+
+    .mobile-sidebar-toggle {
+        padding: 12px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .mobile-sidebar-toggle i {
+        margin-right: 8px;
+    }
+
+    .breadcrumbs {
+        font-size: 0.7rem;
+        gap: 6px;
+    }
+
+    .expand-all-btn,
+    .show-more-btn,
+    .show-all-reviews-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+
+    .content-section {
+        margin-bottom: 30px;
+    }
+
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+    }
+}
+
+/* Landscape Mobile Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .main-header {
+        height: 50px;
+        padding: 5px 0;
+    }
+
+    .course-hero {
+        padding: 20px 0;
+    }
+
+    .hero-bee-image {
+        height: 150px;
+    }
+
+    .course-title {
+        font-size: 1.5rem;
+    }
+
+    .main-content {
+        padding: var(--space-md) var(--space-sm);
+    }
+
+    .content-section {
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+}
+
+/* Hide mobile toggle on desktop */
+.mobile-sidebar-toggle {
+    display: none;
+}
+
+/* Ensure desktop navigation is visible on larger screens */
+@media (min-width: 769px) {
+    .mobile-nav-toggle {
+        display: none !important;
+    }
+
+    .mobile-nav-menu {
+        display: none !important;
+    }
+
+    .header-actions {
+        display: flex !important;
+    }
+
+    .start-course-btn {
+        display: flex !important;
+    }
+
+    .mobile-login-button {
+        display: none !important;
     }
 }

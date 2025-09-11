@@ -3387,6 +3387,40 @@ earch-bar.s {
         display: flex;
     }
 
+    /* Hide desktop navigation on mobile */
+    .main-nav {
+        display: none;
+    }
+
+    /* Optimize search bar for mobile */
+    .search-bar {
+        display: none;
+    }
+
+    /* Optimize user navigation for mobile */
+    .user-nav {
+        gap: var(--space-sm);
+    }
+
+    .user-nav a {
+        padding: var(--space-sm);
+        width: 40px;
+        height: 40px;
+    }
+
+    .user-nav .user-profile {
+        padding: var(--space-xs);
+    }
+
+    .user-profile img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .user-profile span {
+        display: none;
+    }
+
     .main-header {
         height: 60px;
         padding: 0 var(--space-md);
@@ -3505,6 +3539,50 @@ earch-bar.s {
         padding: 0 var(--space-md);
     }
 
+    /* Ultra-compact header for small mobile */
+    .main-header {
+        height: 56px;
+    }
+
+    .main-header .container {
+        padding: 0 var(--space-sm);
+        gap: var(--space-xs);
+    }
+
+    .logo {
+        font-size: 0.9rem;
+    }
+
+    .logo i {
+        font-size: 1rem;
+    }
+
+    /* Ultra-compact user navigation */
+    .user-nav {
+        gap: var(--space-xs);
+    }
+
+    .user-nav a {
+        padding: var(--space-xs);
+        width: 36px;
+        height: 36px;
+    }
+
+    .user-profile img {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Mobile navigation toggle */
+    .mobile-nav-toggle {
+        padding: var(--space-xs);
+    }
+
+    .mobile-nav-toggle span {
+        width: 20px;
+        height: 2px;
+    }
+
     .main-header {
         height: 55px;
         padding: 0 var(--space-sm);
@@ -3530,6 +3608,360 @@ earch-bar.s {
         width: 36px;
         height: 36px;
         margin-left: -40px;
+    }
+
+    /* Dashboard Content Mobile Optimizations */
+    .dashboard-hero {
+        padding: var(--space-lg) 0;
+        text-align: center;
+    }
+
+    .dashboard-hero h1 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--space-sm);
+    }
+
+    .dashboard-hero p {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    /* Mobile-specific spacing adjustments */
+    .section {
+        margin-bottom: var(--space-lg);
+    }
+
+    .section-header {
+        margin-bottom: var(--space-md);
+    }
+
+    /* Touch-friendly button sizes */
+    .btn {
+        min-height: 44px;
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--font-size-md);
+    }
+
+    /* Mobile-optimized cards */
+    .card {
+        margin-bottom: var(--space-md);
+    }
+
+    /* Mobile-friendly form elements */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: var(--space-sm);
+    }
+
+    /* Welcome Section Mobile Optimizations */
+    .welcome-section {
+        padding: var(--space-lg) 0;
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .welcome-hero {
+        flex-direction: column;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+
+    .welcome-content {
+        order: 1;
+        margin-bottom: 0;
+    }
+
+    .welcome-visual {
+        order: 2;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .welcome-header h1 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--space-sm);
+    }
+
+    .welcome-subtitle {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--space-md);
+    }
+
+    .welcome-meta {
+        flex-direction: column;
+        gap: var(--space-xs);
+        align-items: center;
+    }
+
+    .current-date,
+    .season-info {
+        font-size: var(--font-size-sm);
+    }
+
+    .motivational-content {
+        flex-direction: column;
+        gap: var(--space-md);
+        margin-top: var(--space-lg);
+    }
+
+    .streak-counter {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-md);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+    }
+
+    .streak-icon {
+        font-size: var(--font-size-xl);
+    }
+
+    .streak-info {
+        text-align: left;
+    }
+
+    .streak-days {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-bold);
+    }
+
+    .streak-text {
+        font-size: var(--font-size-sm);
+    }
+
+    .streak-message {
+        font-size: var(--font-size-xs);
+    }
+
+    .daily-tip {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--space-md);
+        padding: var(--space-md);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-lg);
+    }
+
+    .tip-icon {
+        font-size: var(--font-size-lg);
+    }
+
+    .tip-content h4 {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-xs);
+    }
+
+    .tip-content p {
+        font-size: var(--font-size-xs);
+        line-height: 1.4;
+    }
+
+    .weather-card {
+        padding: var(--space-lg);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-xl);
+        backdrop-filter: blur(10px);
+    }
+
+    .weather-header {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .weather-header i {
+        font-size: var(--font-size-lg);
+    }
+
+    .weather-header span {
+        font-size: var(--font-size-sm);
+    }
+
+    .weather-info {
+        text-align: center;
+        margin-bottom: var(--space-md);
+    }
+
+    .temperature {
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: var(--space-xs);
+    }
+
+    .weather-desc {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-sm);
+    }
+
+    .weather-details {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--space-md);
+    }
+
+    .weather-details span {
+        font-size: var(--font-size-xs);
+    }
+
+    .weather-note {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-xs);
+        padding: var(--space-sm);
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-xs);
+    }
+
+    /* Weather Card Mobile */
+    .weather-card {
+        padding: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    .weather-info {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+
+    .weather-icon {
+        font-size: var(--font-size-2xl);
+    }
+
+    .weather-details h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .weather-details p {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Quick Stats Grid Mobile */
+    .quick-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    .stat-card {
+        padding: var(--space-md);
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-xs);
+    }
+
+    .stat-card .stat-value {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-xs);
+    }
+
+    .stat-card .stat-change {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Recommendations Mobile */
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .recommendation-card {
+        padding: var(--space-md);
+    }
+
+    .recommendation-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-sm);
+    }
+
+    .recommendation-card p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    /* Analytics Grid Mobile */
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .chart-card {
+        padding: var(--space-md);
+    }
+
+    .chart-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-md);
+    }
+
+    /* Heatmap Mobile */
+    .heatmap-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+    }
+
+    .heatmap-cell {
+        aspect-ratio: 1;
+        min-height: 20px;
+    }
+
+    /* Community Activity Mobile */
+    .activity-grid {
+        flex-direction: column;
+        gap: var(--space-md);
+        overflow-x: visible;
+        padding: 0;
+    }
+
+    .activity-card {
+        flex: none;
+        width: 100%;
+        padding: var(--space-md);
+    }
+
+    .activity-content {
+        gap: var(--space-sm);
+    }
+
+    .activity-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+
+    .user-name {
+        font-size: var(--font-size-sm);
+    }
+
+    .activity-type {
+        font-size: var(--font-size-xs);
+    }
+
+    .activity-time {
+        font-size: var(--font-size-xs);
+    }
+
+    .activity-content p {
+        font-size: var(--font-size-sm);
+        margin: var(--space-sm) 0;
+    }
+
+    .activity-actions {
+        gap: var(--space-sm);
+    }
+
+    .activity-actions button {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--font-size-xs);
     }
 
     .welcome-content h1 {
@@ -3660,6 +4092,7 @@ a:focus {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
+    color: var(--white);
 }
 
 .footer-section ul {
@@ -3671,13 +4104,13 @@ a:focus {
 }
 
 .footer-section a {
-    color: #b5b5b5;
+    color: var(--white);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .footer-section a:hover {
-    color: var(--white);
+    color: #f4c035;
 }
 
 .footer-bottom {
@@ -3727,8 +4160,296 @@ a:focus {
     }
 }
 
+/* Comprehensive Mobile Responsive Design */
+
+/* Main Layout Mobile Optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Dashboard Grid Layout */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Stats Cards */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    .stat-card {
+        padding: var(--space-lg);
+    }
+
+    .stat-card h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .stat-card .stat-value {
+        font-size: var(--font-size-2xl);
+    }
+
+    /* Course Progress Cards */
+    .course-progress-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .course-progress-card {
+        padding: var(--space-lg);
+    }
+
+    /* Recent Activity */
+    .recent-activity {
+        padding: var(--space-lg);
+    }
+
+    .activity-item {
+        padding: var(--space-md);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .activity-content {
+        width: 100%;
+    }
+
+    /* Quick Actions Mobile */
+    .quick-actions {
+        padding: var(--space-lg);
+        text-align: center;
+    }
+
+    .quick-actions h3 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-lg);
+        color: var(--white);
+    }
+
+    .action-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    .action-btn {
+        padding: var(--space-md);
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+        border-radius: var(--radius-lg);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        transition: all var(--transition-normal);
+        min-height: 80px;
+    }
+
+    .action-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .action-btn.primary {
+        background: var(--primary-yellow);
+        color: var(--text-primary);
+        border-color: var(--primary-yellow);
+    }
+
+    .action-btn.primary:hover {
+        background: #d4a02a;
+        border-color: #d4a02a;
+    }
+
+    .action-btn i {
+        font-size: var(--font-size-lg);
+    }
+
+    .action-btn span {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+    }
+
+    /* Learning Path */
+    .learning-path {
+        padding: var(--space-lg);
+    }
+
+    .learning-path-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .learning-path-card {
+        padding: var(--space-lg);
+    }
+
+    /* Upcoming Events */
+    .upcoming-events {
+        padding: var(--space-lg);
+    }
+
+    .events-list {
+        gap: var(--space-md);
+    }
+
+    .event-item {
+        padding: var(--space-md);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .event-date {
+        align-self: flex-start;
+    }
+}
+
 /* Mobile Navigation Optimizations for Small Screens */
 @media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    /* Header Mobile Optimizations */
+    .main-header {
+        height: 60px;
+        padding: 0;
+    }
+
+    .main-header .container {
+        padding: 0 var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logo i {
+        font-size: 1.1rem;
+    }
+
+    /* Stats Cards - Single Column */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .stat-card {
+        padding: var(--space-md);
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        font-size: var(--font-size-md);
+    }
+
+    .stat-card .stat-value {
+        font-size: var(--font-size-xl);
+    }
+
+    .stat-card .stat-change {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Course Progress Cards */
+    .course-progress-card {
+        padding: var(--space-md);
+    }
+
+    .course-progress-card h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .progress-bar {
+        height: 6px;
+    }
+
+    /* Quick Actions - Single Column */
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .quick-action-btn {
+        padding: var(--space-md);
+        font-size: var(--font-size-sm);
+    }
+
+    .quick-action-btn i {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Learning Path Cards */
+    .learning-path-card {
+        padding: var(--space-md);
+    }
+
+    .learning-path-card h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .learning-path-card p {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Recent Activity */
+    .recent-activity {
+        padding: var(--space-md);
+    }
+
+    .activity-item {
+        padding: var(--space-sm);
+    }
+
+    .activity-content h4 {
+        font-size: var(--font-size-sm);
+    }
+
+    .activity-content p {
+        font-size: var(--font-size-xs);
+    }
+
+    .activity-time {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Upcoming Events */
+    .upcoming-events {
+        padding: var(--space-md);
+    }
+
+    .event-item {
+        padding: var(--space-sm);
+    }
+
+    .event-date {
+        font-size: var(--font-size-xs);
+    }
+
+    .event-content h4 {
+        font-size: var(--font-size-sm);
+    }
+
+    .event-content p {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Section Headers */
+    .section-header h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .section-header .view-all {
+        font-size: var(--font-size-sm);
+        padding: var(--space-xs) var(--space-sm);
+    }
+
     .mobile-nav-menu {
         padding: var(--space-sm);
     }
@@ -3765,5 +4486,401 @@ a:focus {
         min-width: 40px;
         min-height: 40px;
         padding: var(--space-sm);
+    }
+
+    /* Ultra-mobile optimizations for 480px and below */
+    .welcome-section {
+        padding: var(--space-md) 0;
+    }
+
+    .welcome-hero {
+        gap: var(--space-md);
+    }
+
+    .welcome-header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .welcome-subtitle {
+        font-size: var(--font-size-sm);
+    }
+
+    .welcome-meta {
+        gap: 4px;
+    }
+
+    .current-date,
+    .season-info {
+        font-size: var(--font-size-xs);
+    }
+
+    .motivational-content {
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+    }
+
+    .streak-counter,
+    .daily-tip {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    .streak-icon,
+    .tip-icon {
+        font-size: var(--font-size-md);
+    }
+
+    .streak-days {
+        font-size: var(--font-size-md);
+    }
+
+    .streak-text,
+    .streak-message {
+        font-size: 10px;
+    }
+
+    .tip-content h4 {
+        font-size: var(--font-size-xs);
+    }
+
+    .tip-content p {
+        font-size: 10px;
+    }
+
+    .weather-card {
+        padding: var(--space-md);
+    }
+
+    .weather-header {
+        gap: var(--space-xs);
+        margin-bottom: var(--space-sm);
+    }
+
+    .weather-header i {
+        font-size: var(--font-size-md);
+    }
+
+    .weather-header span {
+        font-size: var(--font-size-xs);
+    }
+
+    .temperature {
+        font-size: var(--font-size-xl);
+    }
+
+    .weather-desc {
+        font-size: var(--font-size-xs);
+    }
+
+    .weather-details {
+        gap: var(--space-sm);
+    }
+
+    .weather-details span {
+        font-size: 10px;
+    }
+
+    .weather-note {
+        padding: var(--space-xs);
+        font-size: 10px;
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .stat-card {
+        padding: var(--space-sm);
+    }
+
+    .stat-card h3 {
+        font-size: var(--font-size-xs);
+    }
+
+    .stat-card .stat-value {
+        font-size: var(--font-size-lg);
+    }
+
+    .stat-card .stat-change {
+        font-size: 10px;
+    }
+
+    .quick-actions {
+        padding: var(--space-md);
+    }
+
+    .quick-actions h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-md);
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .action-btn {
+        padding: var(--space-sm);
+        min-height: 60px;
+    }
+
+    .action-btn i {
+        font-size: var(--font-size-md);
+    }
+
+    .action-btn span {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Ultra-compact weather card */
+    .weather-card {
+        padding: var(--space-sm);
+    }
+
+    .weather-info {
+        gap: var(--space-xs);
+    }
+
+    .weather-icon {
+        font-size: var(--font-size-xl);
+    }
+
+    .weather-details h3 {
+        font-size: var(--font-size-md);
+    }
+
+    .weather-details p {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Ultra-compact recommendations */
+    .recommendation-card {
+        padding: var(--space-sm);
+    }
+
+    .recommendation-card h3 {
+        font-size: var(--font-size-md);
+    }
+
+    .recommendation-card p {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Ultra-compact analytics */
+    .chart-card {
+        padding: var(--space-sm);
+    }
+
+    .chart-card h3 {
+        font-size: var(--font-size-md);
+    }
+
+    /* Ultra-compact heatmap */
+    .heatmap-cell {
+        min-height: 16px;
+    }
+
+    /* Ultra-compact activity cards */
+    .activity-card {
+        padding: var(--space-sm);
+    }
+
+    .activity-content {
+        gap: var(--space-xs);
+    }
+
+    .user-name {
+        font-size: var(--font-size-xs);
+    }
+
+    .activity-type {
+        font-size: 10px;
+    }
+
+    .activity-time {
+        font-size: 10px;
+    }
+
+    .activity-content p {
+        font-size: var(--font-size-xs);
+    }
+
+    .activity-actions button {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    /* Ultra-compact section headers */
+    .section-header h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .section-header .view-all {
+        font-size: var(--font-size-xs);
+        padding: 4px 8px;
+    }
+}
+
+/* Additional Mobile Optimizations */
+
+/* Touch-friendly interactions */
+@media (max-width: 768px) {
+    /* Ensure all interactive elements are touch-friendly */
+    button,
+    .btn,
+    a,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation;
+    }
+
+    /* Improve tap targets */
+    .stat-card,
+    .recommendation-card,
+    .chart-card,
+    .activity-card {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .stat-card:active,
+    .recommendation-card:active,
+    .chart-card:active,
+    .activity-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Improve scrolling performance */
+    .mobile-nav-menu {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Optimize images for mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Improve text readability */
+    p, span, div {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Better focus states for accessibility */
+    button:focus,
+    a:focus,
+    input:focus {
+        outline: 2px solid var(--primary-yellow);
+        outline-offset: 2px;
+    }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .main-header {
+        height: 50px;
+    }
+
+    .welcome-section {
+        padding: var(--space-md) 0;
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .stat-card {
+        padding: var(--space-sm);
+    }
+
+    .stat-card h3 {
+        font-size: var(--font-size-xs);
+    }
+
+    .stat-card .stat-value {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Landscape optimizations for welcome section */
+    .welcome-section {
+        padding: var(--space-md) 0;
+    }
+
+    .welcome-hero {
+        flex-direction: row;
+        gap: var(--space-lg);
+        text-align: left;
+    }
+
+    .welcome-content {
+        flex: 1;
+        order: 1;
+    }
+
+    .welcome-visual {
+        flex: 0 0 300px;
+        order: 2;
+    }
+
+    .welcome-header h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .welcome-subtitle {
+        font-size: var(--font-size-sm);
+    }
+
+    .motivational-content {
+        flex-direction: row;
+        gap: var(--space-md);
+        margin-top: var(--space-md);
+    }
+
+    .streak-counter,
+    .daily-tip {
+        flex: 1;
+        padding: var(--space-sm);
+    }
+
+    .quick-stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .stat-card {
+        padding: var(--space-sm);
+    }
+
+    .action-buttons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .action-btn {
+        padding: var(--space-sm);
+        min-height: 60px;
+    }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .mobile-nav-toggle span {
+        border-radius: 1px;
+    }
+
+    .stat-card,
+    .recommendation-card,
+    .chart-card {
+        border-width: 0.5px;
     }
 }

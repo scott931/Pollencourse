@@ -1371,6 +1371,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 20px;
+    color: var(--white);
 }
 
 .footer-section ul {
@@ -1382,13 +1383,13 @@
 }
 
 .footer-section a {
-    color: #b5b5b5;
+    color: var(--white);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .footer-section a:hover {
-    color: var(--white);
+    color: #f4c035;
 }
 
 .footer-bottom {

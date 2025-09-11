@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Complete Guide to Beekeeping: From Beginner to Professional Beekeeper - Pollen Patrol Academy</title>
+    <title>Patrollers4her</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpeg">
+    <link rel="shortcut icon" type="image/jpeg" href="images/favicon.jpeg">
+    <link rel="apple-touch-icon" href="images/favicon.jpeg">
+    <link rel="icon" sizes="32x32" type="image/jpeg" href="images/favicon.jpeg">
+    <link rel="icon" sizes="16x16" type="image/jpeg" href="images/favicon.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,7 +27,7 @@
         <div class="container">
             <a href="index.html" class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <span>Pollen Patrol Academy</span>
+                <span>Patrollers4her</span>
             </a>
 
             <div class="header-actions">
@@ -40,11 +48,11 @@
             </div>
 
             <!-- Mobile Navigation Toggle -->
-            <div class="mobile-nav-toggle">
+            <!-- <div class="mobile-nav-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div> -->
         </div>
 
         <!-- Mobile Navigation Menu -->
@@ -52,15 +60,17 @@
             <div class="mobile-nav-header">
                 <a href="index.html" class="mobile-logo">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>Pollen Patrol Academy</span>
+                    <span>Patrollers4her</span>
                 </a>
                 <button class="mobile-nav-close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="mobile-search-bar">
-                <input type="text" placeholder="Search for anything">
-                <button><i class="fas fa-search"></i></button>
+                <div class="search-input-container">
+                    <input type="text" placeholder="Search for anything">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
             </div>
             <nav class="mobile-user-nav">
                 <ul>
@@ -91,6 +101,9 @@
                 </ul>
             </nav>
         </div>
+
+        <!-- Mobile Navigation Backdrop -->
+        <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
 
         <!-- Mobile Login Button (Fixed Position) -->
         <a href="login.html" class="mobile-login-button">
@@ -1071,7 +1084,7 @@
             <div class="container">
                 <div class="logo">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>Pollen Patrol Academy</span>
+                    <span>Patrollers4her</span>
                 </div>
                 <div class="footer-bottom-links">
                     <a href="#">Cookie settings</a>
@@ -1092,60 +1105,7 @@
     <script src="js/messages.js"></script>
 
     <style>
-        /* Logo and Title Optimization */
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            flex-shrink: 0;
-            min-width: 0;
-        }
-
-        .logo i {
-            color: #FFC727;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-        }
-
-        .logo span {
-            font-size: 1.1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 180px;
-        }
-
-        /* Responsive Title Text Sizing */
-        @media (max-width: 1200px) {
-            .logo span {
-                max-width: 150px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .logo span {
-                max-width: 120px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .logo span {
-                max-width: 100px;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo span {
-                max-width: 80px;
-                font-size: 0.8rem;
-            }
-        }
+        /* Logo styles are handled by homecourse.css */
 
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
@@ -1393,16 +1353,37 @@
             }
 
             .sidebar-close {
-                display: block;
+                display: none;
                 position: absolute;
                 top: 20px;
                 right: 20px;
-                background: none;
+                background: var(--udemy-purple);
                 border: none;
-                font-size: 24px;
-                color: #333;
+                font-size: 1.2rem;
+                color: white;
                 cursor: pointer;
                 z-index: 1001;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 8px rgba(164, 53, 240, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .course-sidebar.active .sidebar-close {
+                display: flex;
+            }
+
+            .sidebar-close:hover {
+                background: var(--udemy-purple-hover);
+                transform: scale(1.05);
+                box-shadow: 0 4px 12px rgba(164, 53, 240, 0.4);
+            }
+
+            .sidebar-close:active {
+                transform: scale(0.95);
             }
 
             .pricing-tabs {
@@ -1794,246 +1775,7 @@
             }
         }
 
-        /* Mobile Navigation Styles */
-        .mobile-nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1001;
-        }
-
-        .mobile-nav-toggle span {
-            width: 25px;
-            height: 3px;
-            background-color: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        .mobile-nav-toggle.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .mobile-nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-nav-toggle.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        .mobile-nav-menu {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: left 0.3s ease;
-            overflow-y: auto;
-        }
-
-        .mobile-nav-menu.active {
-            left: 0;
-        }
-
-        .mobile-nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            background: white;
-        }
-
-        .mobile-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .mobile-logo i {
-            color: #FFC727;
-            font-size: 1.5rem;
-        }
-
-        .mobile-nav-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #333;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .mobile-search-bar {
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .mobile-search-bar input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .mobile-search-bar button {
-            width: 100%;
-            padding: 12px;
-            background: #FFC727;
-            color: #333;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .mobile-user-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-user-nav li {
-            border-bottom: 1px solid #eee;
-        }
-
-        .mobile-user-nav a {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px;
-            text-decoration: none;
-            color: #333;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .mobile-user-nav a:hover {
-            background-color: #f8f9fa;
-        }
-
-        .mobile-user-nav i {
-            width: 20px;
-            text-align: center;
-            color: #FFC727;
-        }
-
-        .mobile-login-btn {
-            color: #007bff !important;
-        }
-
-        .mobile-register-btn {
-            color: #28a745 !important;
-        }
-
-        .mobile-catalog-link {
-            color: #6f42c1 !important;
-        }
-
-        .mobile-community-link {
-            color: #fd7e14 !important;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-nav-toggle {
-                display: flex;
-            }
-
-            .header-actions {
-                display: none !important;
-            }
-
-            /* Show login button on mobile */
-            .mobile-login-button {
-                display: block !important;
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 999;
-                background: #FFC727;
-                color: #111;
-                border: none;
-                border-radius: 50px;
-                padding: 15px 25px;
-                font-size: 1rem;
-                font-weight: 600;
-                box-shadow: 0 4px 20px rgba(255, 199, 39, 0.4);
-                cursor: pointer;
-                transition: all 0.3s ease;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .mobile-login-button:hover {
-                background: #ffb300;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 25px rgba(255, 199, 39, 0.6);
-            }
-
-            .mobile-login-button i {
-                font-size: 1.1rem;
-            }
-
-            /* Adjust button for smaller screens */
-            @media (max-width: 480px) {
-                .mobile-login-button {
-                    bottom: 15px;
-                    right: 15px;
-                    padding: 12px 20px;
-                    font-size: 0.9rem;
-                }
-
-                .mobile-login-button span {
-                    display: none; /* Hide text on very small screens */
-                }
-
-                .mobile-login-button i {
-                    font-size: 1.2rem;
-                }
-            }
-
-            .mobile-nav-menu.active {
-                left: 0;
-            }
-
-            /* Ensure mobile navigation is properly positioned */
-            .mobile-nav-menu {
-                display: block;
-            }
-        }
-
-        /* Ensure desktop navigation is visible on larger screens */
-        @media (min-width: 769px) {
-            .mobile-nav-toggle {
-                display: none !important;
-            }
-
-            .mobile-nav-menu {
-                display: none !important;
-            }
-
-            .header-actions {
-                display: flex !important;
-            }
-
-            .mobile-login-button {
-                display: none !important;
-            }
-        }
+        /* Mobile navigation styles are handled by homecourse.css */
 
         @media (max-width: 480px) {
             /* Extra small mobile optimizations */
@@ -2147,61 +1889,62 @@
             const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
             const mobileNavMenu = document.querySelector('.mobile-nav-menu');
             const mobileNavClose = document.querySelector('.mobile-nav-close');
+            const mobileNavBackdrop = document.querySelector('.mobile-nav-backdrop');
 
             if (!mobileNavToggle || !mobileNavMenu) {
                 console.log('Mobile navigation elements not found');
                 return;
             }
 
+            // Function to close mobile navigation
+            function closeMobileNav() {
+                mobileNavToggle.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+                if (mobileNavBackdrop) {
+                    mobileNavBackdrop.classList.remove('active');
+                }
+                document.body.style.overflow = 'auto';
+            }
+
             // Toggle mobile navigation
             mobileNavToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileNavMenu.classList.toggle('active');
-            document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : 'auto';
-        });
-
-        // Close mobile navigation
-        mobileNavClose.addEventListener('click', function() {
-            mobileNavToggle.classList.remove('active');
-            mobileNavMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close mobile navigation when clicking on a link
-        document.querySelectorAll('.mobile-user-nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileNavToggle.classList.remove('active');
-                mobileNavMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                console.log('Mobile nav toggle clicked');
+                this.classList.toggle('active');
+                mobileNavMenu.classList.toggle('active');
+                if (mobileNavBackdrop) {
+                    mobileNavBackdrop.classList.toggle('active');
+                }
+                document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : 'auto';
+                console.log('Mobile nav menu active:', mobileNavMenu.classList.contains('active'));
             });
-        });
 
-        // Close mobile navigation when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.main-header') && !e.target.closest('.mobile-nav-menu')) {
-                mobileNavToggle.classList.remove('active');
-                mobileNavMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
+            // Close mobile navigation when close button is clicked
+            if (mobileNavClose) {
+                mobileNavClose.addEventListener('click', closeMobileNav);
             }
-        });
 
-        // Close mobile navigation on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                mobileNavToggle.classList.remove('active');
-                mobileNavMenu.classList.remove('active');
-                document.body.style.overflow = 'auto';
+            // Close mobile navigation when backdrop is clicked
+            if (mobileNavBackdrop) {
+                mobileNavBackdrop.addEventListener('click', closeMobileNav);
             }
-        });
+
+            // Close mobile navigation when clicking on a link
+            document.querySelectorAll('.mobile-nav-menu a').forEach(link => {
+                link.addEventListener('click', closeMobileNav);
+            });
 
             // Close mobile navigation when pressing Escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    mobileNavToggle.classList.remove('active');
-                    mobileNavMenu.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                    closeMobileNav();
                 }
             });
+
+        // Close mobile navigation on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMobileNav();
+            }
         });
     </script>
 </body>

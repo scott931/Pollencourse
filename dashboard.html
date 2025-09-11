@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pollen Patrol Academy Dashboard - Your Beekeeping Journey</title>
+    <title>Patrollers4her</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpeg">
+    <link rel="shortcut icon" type="image/jpeg" href="images/favicon.jpeg">
+    <link rel="apple-touch-icon" href="images/favicon.jpeg">
+    <link rel="icon" sizes="32x32" type="image/jpeg" href="images/favicon.jpeg">
+    <link rel="icon" sizes="16x16" type="image/jpeg" href="images/favicon.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +25,7 @@
         <div class="container">
             <a href="dashboard.html" class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <span>Pollen Patrol Academy</span>
+                <span>Patrollers4her</span>
             </a>
             <nav class="main-nav">
                 <ul>
@@ -75,7 +83,7 @@
             <div class="mobile-nav-header">
                 <a href="dashboard.html" class="mobile-logo">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>Pollen Patrol Academy</span>
+                    <span>Patrollers4her</span>
                 </a>
                 <button class="mobile-nav-close">
                     <i class="fas fa-times"></i>
@@ -473,7 +481,7 @@
 
                     <div class="achievement-card">
                         <div class="achievement-icon">
-                            <i class="fas fa-honey-jar"></i>
+                            <i class="fas fa-hive"></i>
                         </div>
                         <div class="achievement-info">
                             <h3>Honey Production Master</h3>
@@ -546,11 +554,11 @@
 
                     <div class="activity-card">
                         <div class="user-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Sample Community Member: Pollen Patrol Academy Team">
+                            <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="Sample Community Member: Patrollers4her Team">
                         </div>
                         <div class="activity-content">
                             <div class="activity-header">
-                                <span class="user-name">Pollen Patrol Academy Team</span>
+                                <span class="user-name">Patrollers4her Team</span>
                                 <span class="activity-type">announced</span>
                                 <span class="activity-time">1 day ago</span>
                             </div>
@@ -606,7 +614,7 @@
                         </ul>
                     </div>
                     <div class="footer-section">
-                        <h4>About Pollen Patrol Academy</h4>
+                        <h4>About Patrollers4her</h4>
                         <ul>
                             <li><a href="#">About us</a></li>
                             <li><a href="#">Careers</a></li>
@@ -621,7 +629,7 @@
             <div class="container">
                 <div class="logo">
                     <i class="fas fa-graduation-cap"></i>
-                    <span>Pollen Patrol Academy</span>
+                    <span>Patrollers4her</span>
                 </div>
                 <div class="footer-bottom-links">
                     <a href="#">Cookie settings</a>
@@ -644,12 +652,37 @@
 
     <style>
         /* Responsive Title Text Sizing */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            flex-shrink: 0;
+            min-width: 0;
+        }
+
+        .logo i {
+            color: #FFC727;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
         .logo span {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+        /* .logo span {
+            font-size: 1.1rem;
+            font-weight: bolder;
             color: var(--primary-yellow);
             transition: font-size 0.3s ease;
-        }
+        } */
 
         @media (max-width: 1200px) {
             .logo span {

@@ -492,19 +492,19 @@
 
 .metric-card {
     background: var(--white);
-    padding: var(--space-lg);
+    padding: var(--space-md);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     transition: all var(--transition-normal);
     border: 1px solid var(--border-light);
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1;
+    min-height: auto;
     text-align: center;
 }
 
@@ -531,15 +531,15 @@
 }
 
 .metric-icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     background: var(--gradient-primary);
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-inverse);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     box-shadow: var(--shadow-sm);
     position: relative;
     flex-shrink: 0;
@@ -567,17 +567,17 @@
 }
 
 .metric-content h3 {
-    font-size: var(--font-size-xs);
+    font-size: 10px;
     color: var(--text-secondary);
     margin: 0;
     font-weight: var(--font-weight-medium);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .metric-value {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     margin: 0;
@@ -589,7 +589,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-xs);
-    font-size: var(--font-size-xs);
+    font-size: 9px;
     font-weight: var(--font-weight-medium);
     justify-content: center;
 }
@@ -726,23 +726,59 @@
     }
 }
 
+/* Comprehensive Mobile Responsive for Key Metrics */
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+        max-width: 100%;
+        padding: 0 var(--space-md);
+    }
+
+    .metric-card {
+        padding: var(--space-md);
+        min-height: auto;
+    }
+
+    .metric-icon {
+        width: 40px;
+        height: 40px;
+        font-size: var(--font-size-md);
+    }
+
+    .metric-content h3 {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-xs);
+    }
+
+    .metric-value {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-xs);
+    }
+
+    .metric-change {
+        font-size: var(--font-size-xs);
+    }
+}
+
 /* Additional mobile responsive for metrics */
 @media (max-width: 480px) {
     .metrics-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-xs);
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
         max-width: 100%;
         padding: 0 var(--space-sm);
     }
 
     .metric-card {
-        padding: var(--space-xs);
+        padding: var(--space-sm);
+        min-height: auto;
     }
 
     .metric-icon {
-        width: 28px;
-        height: 28px;
-        font-size: var(--font-size-xs);
+        width: 36px;
+        height: 36px;
+        font-size: var(--font-size-sm);
     }
 
     .metric-content h3 {
@@ -919,9 +955,10 @@
     }
 
     .metrics-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
-        max-width: 800px;
+        max-width: 100%;
+        padding: 0 var(--space-md);
     }
 
     .charts-grid {
@@ -936,7 +973,143 @@
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 var(--space-md);
+        padding: 0 var(--space-sm);
+    }
+
+    /* Ultra-compact sections for small mobile */
+    .analytics-hero,
+    .key-metrics,
+    .daily-activity,
+    .performance-insights,
+    .learning-progress,
+    .skills-development,
+    .community-engagement,
+    .goals-achievements,
+    .recommendations {
+        padding: var(--space-md) 0;
+    }
+
+    .analytics-hero .container,
+    .key-metrics .container,
+    .daily-activity .container,
+    .performance-insights .container,
+    .learning-progress .container,
+    .skills-development .container,
+    .community-engagement .container,
+    .goals-achievements .container,
+    .recommendations .container {
+        padding: 0 var(--space-sm);
+    }
+
+    /* Ultra-compact hero content */
+    .hero-content h1 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-xs);
+    }
+
+    .hero-content p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    /* Ultra-compact section headers */
+    .section-header {
+        margin-bottom: var(--space-md);
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    .section-header .view-all {
+        font-size: var(--font-size-xs);
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    /* Ultra-compact cards */
+    .insight-card,
+    .progress-card,
+    .skill-card,
+    .engagement-card,
+    .goal-card,
+    .recommendation-card {
+        padding: var(--space-md);
+    }
+
+    .insight-card h3,
+    .progress-card h3,
+    .skill-card h3,
+    .engagement-card h3,
+    .goal-card h3,
+    .recommendation-card h3 {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--space-xs);
+    }
+
+    .insight-card p,
+    .recommendation-card p {
+        font-size: var(--font-size-xs);
+        margin-bottom: var(--space-sm);
+    }
+
+    /* Ultra-compact progress bars */
+    .progress-bar {
+        height: 4px;
+    }
+
+    /* Ultra-compact engagement stats */
+    .engagement-stats {
+        grid-template-columns: 1fr;
+        gap: var(--space-xs);
+    }
+
+    .engagement-stat {
+        padding: var(--space-xs);
+    }
+
+    .engagement-stat .stat-value {
+        font-size: var(--font-size-md);
+    }
+
+    .engagement-stat .stat-label {
+        font-size: 10px;
+    }
+
+    /* Ultra-compact skill and goal headers */
+    .skill-header,
+    .goal-header {
+        gap: var(--space-xs);
+        margin-bottom: var(--space-sm);
+    }
+
+    .skill-header h3,
+    .goal-header h3 {
+        font-size: var(--font-size-md);
+    }
+
+    .skill-level {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Ultra-compact meta information */
+    .skill-meta,
+    .goal-meta {
+        gap: 2px;
+    }
+
+    .skill-meta span,
+    .goal-meta span {
+        font-size: 10px;
+    }
+
+    /* Ultra-compact recommendation actions */
+    .recommendation-actions {
+        gap: var(--space-xs);
+    }
+
+    .recommendation-actions .btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--font-size-xs);
     }
 
     .hero-content h1 {
@@ -1738,6 +1911,317 @@
     color: var(--text-primary);
 }
 
+/* Comprehensive Mobile Responsive Design for Analytics */
+
+/* Main Layout Mobile Optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Analytics Hero Section Mobile */
+    .analytics-hero {
+        padding: var(--space-lg) 0;
+        text-align: center;
+    }
+
+    .analytics-hero .container {
+        padding: 0 var(--space-md);
+    }
+
+    .hero-content h1 {
+        font-size: var(--font-size-2xl);
+        margin-bottom: var(--space-sm);
+    }
+
+    .hero-content p {
+        font-size: var(--font-size-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    /* Key Metrics Section Mobile */
+    .key-metrics {
+        padding: var(--space-lg) 0;
+    }
+
+    .key-metrics .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Daily Activity Section Mobile */
+    .daily-activity {
+        padding: var(--space-lg) 0;
+    }
+
+    .daily-activity .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Performance Insights Section Mobile */
+    .performance-insights {
+        padding: var(--space-lg) 0;
+    }
+
+    .performance-insights .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Learning Progress Section Mobile */
+    .learning-progress {
+        padding: var(--space-lg) 0;
+    }
+
+    .learning-progress .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Skills Development Section Mobile */
+    .skills-development {
+        padding: var(--space-lg) 0;
+    }
+
+    .skills-development .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Community Engagement Section Mobile */
+    .community-engagement {
+        padding: var(--space-lg) 0;
+    }
+
+    .community-engagement .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Goals & Achievements Section Mobile */
+    .goals-achievements {
+        padding: var(--space-lg) 0;
+    }
+
+    .goals-achievements .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Recommendations Section Mobile */
+    .recommendations {
+        padding: var(--space-lg) 0;
+    }
+
+    .recommendations .container {
+        padding: 0 var(--space-md);
+    }
+
+    /* Section Headers Mobile */
+    .section-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-xl);
+        text-align: center;
+    }
+
+    .section-header .view-all {
+        align-self: center;
+        font-size: var(--font-size-sm);
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    /* Performance Insights Grid Mobile */
+    .insights-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .insight-card {
+        padding: var(--space-lg);
+    }
+
+    .insight-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-sm);
+    }
+
+    .insight-card p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    /* Learning Progress Mobile */
+    .progress-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .progress-card {
+        padding: var(--space-lg);
+    }
+
+    .progress-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-md);
+    }
+
+    .progress-bar {
+        height: 8px;
+        margin-bottom: var(--space-sm);
+    }
+
+    .progress-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+
+    /* Skills Development Mobile */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .skill-card {
+        padding: var(--space-lg);
+    }
+
+    .skill-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .skill-header h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .skill-level {
+        font-size: var(--font-size-sm);
+    }
+
+    .skill-progress {
+        margin-bottom: var(--space-md);
+    }
+
+    .skill-progress .progress-bar {
+        height: 6px;
+    }
+
+    .skill-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+
+    .skill-meta span {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Community Engagement Mobile */
+    .engagement-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .engagement-card {
+        padding: var(--space-lg);
+    }
+
+    .engagement-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-sm);
+    }
+
+    .engagement-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .engagement-stat {
+        text-align: center;
+        padding: var(--space-sm);
+    }
+
+    .engagement-stat .stat-value {
+        font-size: var(--font-size-lg);
+    }
+
+    .engagement-stat .stat-label {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Goals & Achievements Mobile */
+    .goals-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .goal-card {
+        padding: var(--space-lg);
+    }
+
+    .goal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .goal-header h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .goal-progress {
+        margin-bottom: var(--space-md);
+    }
+
+    .goal-progress .progress-bar {
+        height: 6px;
+    }
+
+    .goal-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+
+    .goal-meta span {
+        font-size: var(--font-size-xs);
+    }
+
+    /* Recommendations Mobile */
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .recommendation-card {
+        padding: var(--space-lg);
+    }
+
+    .recommendation-card h3 {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-sm);
+    }
+
+    .recommendation-card p {
+        font-size: var(--font-size-sm);
+        margin-bottom: var(--space-md);
+    }
+
+    .recommendation-actions {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .recommendation-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* Responsive Design for New Sections */
 @media (max-width: 768px) {
     .section-header {
@@ -1850,6 +2334,227 @@
     max-width: 100% !important;
     overflow-x: hidden !important;
     grid-template-columns: repeat(auto-fit, minmax(380px, 10fr)) !important;
+}
+
+/* Additional Mobile Optimizations for Analytics */
+
+/* Touch-friendly interactions */
+@media (max-width: 768px) {
+    /* Ensure all interactive elements are touch-friendly */
+    button,
+    .btn,
+    a,
+    input[type="button"],
+    input[type="submit"],
+    .time-filter button,
+    .metric-card,
+    .stat-item,
+    .insight-card,
+    .progress-card,
+    .skill-card,
+    .engagement-card,
+    .goal-card,
+    .recommendation-card {
+        min-height: 44px;
+        min-width: 44px;
+        touch-action: manipulation;
+    }
+
+    /* Improve tap targets for analytics cards */
+    .metric-card,
+    .stat-item,
+    .insight-card,
+    .progress-card,
+    .skill-card,
+    .engagement-card,
+    .goal-card,
+    .recommendation-card {
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .metric-card:active,
+    .stat-item:active,
+    .insight-card:active,
+    .progress-card:active,
+    .skill-card:active,
+    .engagement-card:active,
+    .goal-card:active,
+    .recommendation-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Improve scrolling performance */
+    .mobile-nav-menu {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Optimize images for mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Improve text readability */
+    p, span, div {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Better focus states for accessibility */
+    button:focus,
+    a:focus,
+    input:focus,
+    .time-filter button:focus {
+        outline: 2px solid var(--primary-yellow);
+        outline-offset: 2px;
+    }
+
+    /* Mobile-optimized time filter */
+    .time-filter {
+        padding: var(--space-xs);
+        gap: var(--space-xs);
+    }
+
+    .time-filter button {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--font-size-sm);
+        min-height: 36px;
+        border-radius: var(--radius-md);
+    }
+
+    /* Mobile-optimized activity metrics */
+    .activity-metrics {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .activity-metrics .metric-card {
+        padding: var(--space-md);
+    }
+
+    .activity-metrics .metric-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+        margin-bottom: var(--space-sm);
+    }
+
+    .activity-metrics .metric-header h3 {
+        font-size: var(--font-size-sm);
+    }
+
+    .activity-metrics .metric-value {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--space-sm);
+    }
+
+    .activity-metrics .metric-progress {
+        margin-bottom: var(--space-xs);
+    }
+
+    .activity-metrics .metric-progress span {
+        font-size: var(--font-size-xs);
+    }
+}
+
+/* Landscape mobile optimizations for analytics */
+@media (max-width: 768px) and (orientation: landscape) {
+    .analytics-hero,
+    .key-metrics,
+    .daily-activity,
+    .performance-insights,
+    .learning-progress,
+    .skills-development,
+    .community-engagement,
+    .goals-achievements,
+    .recommendations {
+        padding: var(--space-md) 0;
+    }
+
+    .hero-content h1 {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero-content p {
+        font-size: var(--font-size-sm);
+    }
+
+    .section-header h2 {
+        font-size: var(--font-size-lg);
+    }
+
+    /* Landscape-optimized grids */
+    .insights-grid,
+    .progress-grid,
+    .skills-grid,
+    .engagement-grid,
+    .goals-grid,
+    .recommendations-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .engagement-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Landscape-optimized key metrics */
+    .metrics-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .metric-card {
+        padding: var(--space-sm);
+        min-height: auto;
+    }
+
+    .metric-icon {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+
+    .metric-content h3 {
+        font-size: var(--font-size-xs);
+    }
+
+    .metric-value {
+        font-size: var(--font-size-md);
+    }
+
+    .metric-change {
+        font-size: 10px;
+    }
+}
+
+/* High DPI display optimizations for analytics */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .metric-card,
+    .stat-item,
+    .insight-card,
+    .progress-card,
+    .skill-card,
+    .engagement-card,
+    .goal-card,
+    .recommendation-card {
+        border-width: 0.5px;
+    }
+
+    .progress-bar {
+        border-radius: 1px;
+    }
+
+    .time-filter button {
+        border-width: 0.5px;
+    }
 }
 
 .analytics-main .skill-card {
