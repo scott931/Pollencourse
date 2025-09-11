@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/homecourse.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -90,6 +91,12 @@
                 </ul>
             </nav>
         </div>
+
+        <!-- Mobile Login Button (Fixed Position) -->
+        <a href="login.html" class="mobile-login-button">
+            <i class="fas fa-play"></i>
+            <span>Login to Start Course</span>
+        </a>
     </header>
 
     <!-- Course Hero Section -->
@@ -1948,6 +1955,57 @@
                 display: none !important;
             }
 
+            /* Show login button on mobile */
+            .mobile-login-button {
+                display: block !important;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 999;
+                background: #FFC727;
+                color: #111;
+                border: none;
+                border-radius: 50px;
+                padding: 15px 25px;
+                font-size: 1rem;
+                font-weight: 600;
+                box-shadow: 0 4px 20px rgba(255, 199, 39, 0.4);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .mobile-login-button:hover {
+                background: #ffb300;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 25px rgba(255, 199, 39, 0.6);
+            }
+
+            .mobile-login-button i {
+                font-size: 1.1rem;
+            }
+
+            /* Adjust button for smaller screens */
+            @media (max-width: 480px) {
+                .mobile-login-button {
+                    bottom: 15px;
+                    right: 15px;
+                    padding: 12px 20px;
+                    font-size: 0.9rem;
+                }
+
+                .mobile-login-button span {
+                    display: none; /* Hide text on very small screens */
+                }
+
+                .mobile-login-button i {
+                    font-size: 1.2rem;
+                }
+            }
+
             .mobile-nav-menu.active {
                 left: 0;
             }
@@ -1970,6 +2028,10 @@
 
             .header-actions {
                 display: flex !important;
+            }
+
+            .mobile-login-button {
+                display: none !important;
             }
         }
 

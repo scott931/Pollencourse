@@ -1,203 +1,19 @@
-/* Course Catalog Styles - Enhanced Discovery Interface */
+/* Course Catalog Styles - Uses Unified Design System */
+/* Import the unified design system */
+@import url('design-system.css');
+
+/* Catalog-specific overrides and additions */
 :root {
+    /* Catalog-specific color overrides */
     --primary-yellow: #facc4c;
     --primary-yellow-hover: #f4c035;
-    --dark-bg: #0b0804;
-    --text-dark: #0b0804;
-    --text-light: #655238;
-    --text-lighter: #8a7a5a;
-    --border-color: #d4c4a6;
-    --white: #FFFFFF;
     --yellow-star: #facc4c;
     --red-timer: #d93b04;
-    --green-success: #28A745;
     --blue-info: #17A2B8;
     --orange-warning: #FFC107;
-    --shadow: 0 2px 4px rgba(11, 8, 4, 0.08);
-    --shadow-hover: 0 4px 8px rgba(11, 8, 4, 0.12);
-    --shadow-card: 0 4px 12px rgba(11, 8, 4, 0.1);
-    --gradient-primary: linear-gradient(135deg, #facc4c 0%, #f4c035 100%);
-    --gradient-secondary: linear-gradient(135deg, #655238 0%, #8a7a5a 100%);
-    --gradient-success: linear-gradient(135deg, #28A745 0%, #20C997 100%);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.4;
-    color: var(--text-dark);
-    background-color: #f8f9fa;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* Header Styles (Same as dashboard) */
-.main-header {
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: 70px;
-    display: flex;
-    align-items: center;
-}
-
-.main-header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-yellow);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    margin-right: 16px;
-}
-
-.logo:hover {
-    color: var(--udemy-purple-hover);
-}
-
-.logo i {
-    margin-right: 8px;
-    font-size: 1.8rem;
-}
-
-.main-nav ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 8px;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: var(--text-light);
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    font-weight: 500;
-}
-
-.main-nav a:hover, .main-nav a.active {
-    color: var(--udemy-purple);
-    background-color: rgba(164, 53, 240, 0.1);
-}
-
-.main-nav i {
-    margin-right: 8px;
-    font-size: 1rem;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    max-width: 400px;
-    margin: 0 24px;
-    position: relative;
-    background-color: #f8f9fa;
-    border-radius: 9999px;
-    padding: 4px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.search-bar:focus-within {
-    background-color: var(--white);
-    border-color: var(--primary-yellow);
-    box-shadow: 0 0 0 3px rgba(250, 204, 76, 0.1);
-    transform: translateY(-1px);
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 9999px;
-    background: transparent;
-    font-size: 0.9rem;
-    outline: none;
-    transition: all 0.2s ease;
-    color: var(--text-dark);
-}
-
-.search-bar input::placeholder {
-    color: var(--text-lighter);
-    font-weight: 400;
-}
-
-.search-bar input:focus {
-    outline: none;
-}
-
-.search-bar button {
-    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-yellow-hover) 100%);
-    border: none;
-    color: var(--text-dark);
-    padding: 10px;
-    margin-left: -44px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(250, 204, 76, 0.3);
-}
-
-.search-bar button:hover {
-    background: linear-gradient(135deg, var(--primary-yellow-hover) 0%, var(--primary-yellow) 100%);
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(250, 204, 76, 0.4);
-}
-
-.search-bar button:active {
-    transform: scale(0.95);
-}
-
-.user-nav ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap: 16px;
-}
-
-.user-nav a {
-    text-decoration: none;
-    color: var(--text-light);
-    position: relative;
-    padding: 8px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
-}
-
-.user-nav a:hover {
-    background-color: rgba(164, 53, 240, 0.1);
-    color: var(--udemy-purple);
-}
+/* Header styles are now handled by dashboard.css for consistency */
 
 .badge {
     position: absolute;
@@ -403,7 +219,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--gradient-primary);
+    background: #f4c035;
     color: var(--white);
     padding: 48px;
     border-radius: 20px;
@@ -622,10 +438,12 @@ body {
     background: var(--border-color);
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
 }
 
 .price-range input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
     appearance: none;
     width: 20px;
     height: 20px;
@@ -1421,6 +1239,12 @@ body {
         max-width: none;
         margin: 0;
         width: 100%;
+    }
+
+    .search-bar input {
+        font-size: 16px; /* Prevent zoom on iOS */
+        min-height: 44px;
+        padding: 12px 16px;
         background-color: var(--white);
         border: 1px solid var(--border-color);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

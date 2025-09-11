@@ -37,6 +37,7 @@ class AnalyticsManager {
         }
     }
 
+
     initializeEventListeners() {
         // Time filter buttons
         const filterBtns = document.querySelectorAll('.filter-btn');

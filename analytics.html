@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Beekeeping Analytics - Pollen Patrol Academy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/design-system.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="css/analytics.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,7 +31,7 @@
                 </ul>
             </nav>
             <div class="search-bar">
-                <input type="text" placeholder="Search hive analytics and insights">
+                <input type="text" placeholder="Search beekeeping courses, techniques, or community...">
                 <button><i class="fas fa-search"></i></button>
             </div>
             <nav class="user-nav">
@@ -63,29 +64,83 @@
                     </li>
                 </ul>
             </nav>
+
+            <!-- Mobile Navigation Toggle -->
+            <div class="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu">
+            <div class="mobile-nav-header">
+                <a href="dashboard.html" class="mobile-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Pollen Patrol Academy</span>
+                </a>
+                <button class="mobile-nav-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-main-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="catalog.html"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="community.html"><i class="fas fa-users"></i> Community</a></li>
+                    <li><a href="analytics.html" class="active"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-search-bar">
+                <input type="text" placeholder="Search beekeeping courses, techniques, or community...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="mobile-user-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="mobile-notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications (3)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-messages-btn">
+                            <i class="fas fa-envelope"></i>
+                            <span>Messages (5)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="mobile-profile-btn">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <!-- Analytics Hero Section -->
     <section class="analytics-hero">
         <div class="container">
-            <div class="hero-content" data-aos="fade-up">
+            <div class="hero-content animate-fade-in-up">
                 <h1>Your Beekeeping Analytics</h1>
                 <p>Track your hive progress, analyze your beekeeping performance, and optimize your apiary management with detailed insights and recommendations.</p>
                 <div class="hero-stats">
-                    <div class="stat-item">
+                    <div class="stat-item animate-fade-in-up animate-delay-100">
                         <span class="stat-number">156</span>
                         <span class="stat-label">Hours Spent</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item animate-fade-in-up animate-delay-200">
                         <span class="stat-number">6</span>
                         <span class="stat-label">Hives Managed</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item animate-fade-in-up animate-delay-300">
                         <span class="stat-number">94%</span>
                         <span class="stat-label">Colony Health</span>
                     </div>
-                    <div class="stat-item">
+                    <div class="stat-item animate-fade-in-up animate-delay-400">
                         <span class="stat-number">8</span>
                         <span class="stat-label">Skills Mastered</span>
                     </div>
@@ -98,13 +153,13 @@
     <main class="analytics-main">
         <div class="container">
             <!-- Time Filter -->
-            <section class="time-filter" data-aos="fade-up">
+            <section class="time-filter animate-fade-in-up">
                 <div class="filter-options">
-                    <button class="filter-btn active" data-period="7d">Last 7 Days</button>
-                    <button class="filter-btn" data-period="30d">Last 30 Days</button>
-                    <button class="filter-btn" data-period="90d">Last 90 Days</button>
-                    <button class="filter-btn" data-period="1y">Last Year</button>
-                    <button class="filter-btn" data-period="all">All Time</button>
+                    <button class="filter-btn active" data-period="7d"><span>Last 7 Days</span></button>
+                    <button class="filter-btn" data-period="30d"><span>Last 30 Days</span></button>
+                    <button class="filter-btn" data-period="90d"><span>Last 90 Days</span></button>
+                    <button class="filter-btn" data-period="1y"><span>Last Year</span></button>
+                    <button class="filter-btn" data-period="all"><span>All Time</span></button>
                 </div>
                 <div class="date-range">
                     <input type="date" id="startDate" value="2024-01-01">
@@ -115,9 +170,12 @@
             </section>
 
             <!-- Key Metrics -->
-            <section class="key-metrics" data-aos="fade-up">
+            <section class="key-metrics">
+                <div class="section-header animate-slide-in-left">
+                    <h2><i class="fas fa-chart-bar"></i> Key Performance Metrics</h2>
+                </div>
                 <div class="metrics-grid">
-                    <div class="metric-card">
+                    <div class="metric-card animate-fade-in-up animate-delay-100">
                         <div class="metric-icon">
                             <i class="fas fa-clock"></i>
                         </div>
@@ -131,7 +189,7 @@
                         </div>
                     </div>
 
-                    <div class="metric-card">
+                    <div class="metric-card animate-fade-in-up animate-delay-200">
                         <div class="metric-icon">
                             <i class="fas fa-bee"></i>
                         </div>
@@ -145,7 +203,7 @@
                         </div>
                     </div>
 
-                    <div class="metric-card">
+                    <div class="metric-card animate-fade-in-up animate-delay-300">
                         <div class="metric-icon">
                             <i class="fas fa-trophy"></i>
                         </div>
@@ -159,7 +217,7 @@
                         </div>
                     </div>
 
-                    <div class="metric-card">
+                    <div class="metric-card animate-fade-in-up animate-delay-400">
                         <div class="metric-icon">
                             <i class="fas fa-star"></i>
                         </div>
@@ -1025,6 +1083,296 @@
                 height: 250px;
             }
         }
+
+        /* Mobile Navigation System */
+        .mobile-nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .mobile-nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-nav-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .mobile-nav-menu.active {
+            left: 0;
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background: #f8f9fa;
+        }
+
+        .mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .mobile-logo i {
+            color: #FFC727;
+            font-size: 1.5rem;
+        }
+
+        .mobile-logo span {
+            font-size: 1.1rem;
+        }
+
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+            padding: 5px;
+        }
+
+        .mobile-main-nav {
+            padding: 20px;
+        }
+
+        .mobile-main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-main-nav li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-main-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 0;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-main-nav a:hover {
+            color: #FFC727;
+        }
+
+        .mobile-main-nav a.active {
+            color: #FFC727;
+            font-weight: 600;
+        }
+
+        .mobile-main-nav i {
+            width: 20px;
+            text-align: center;
+            color: #FFC727;
+        }
+
+        .mobile-search-bar {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-search-bar input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .mobile-search-bar button {
+            width: 100%;
+            padding: 12px;
+            background: #FFC727;
+            color: #333;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .mobile-user-nav {
+            padding: 20px;
+        }
+
+        .mobile-user-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-user-nav li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-user-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 0;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-user-nav a:hover {
+            background-color: #f8f9fa;
+        }
+
+        .mobile-user-nav i {
+            width: 20px;
+            text-align: center;
+            color: #FFC727;
+        }
+
+        /* Mobile Navigation Responsive */
+        @media (max-width: 768px) {
+            .mobile-nav-toggle {
+                display: flex;
+            }
+
+            .main-nav,
+            .search-bar,
+            .user-nav {
+                display: none;
+            }
+
+            .main-header .container {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                flex: 1;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-nav-toggle,
+            .mobile-nav-menu {
+                display: none;
+            }
+
+            .main-nav,
+            .search-bar,
+            .user-nav {
+                display: flex;
+            }
+        }
     </style>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+    <script src="js/analytics.js"></script>
+
+    <script>
+        // Mobile Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+            const mobileNavClose = document.querySelector('.mobile-nav-close');
+
+            if (!mobileNavToggle || !mobileNavMenu) {
+                console.log('Mobile navigation elements not found');
+                return;
+            }
+
+            // Toggle mobile navigation
+            mobileNavToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mobileNavMenu.classList.toggle('active');
+                document.body.style.overflow = mobileNavMenu.classList.contains('active') ? 'hidden' : 'auto';
+            });
+
+            // Close mobile navigation
+            if (mobileNavClose) {
+                mobileNavClose.addEventListener('click', function() {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Close mobile navigation when clicking on a link
+            document.querySelectorAll('.mobile-main-nav a, .mobile-user-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            // Close mobile navigation when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.main-header') && !e.target.closest('.mobile-nav-menu')) {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close mobile navigation on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close mobile navigation when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileNavToggle.classList.remove('active');
+                    mobileNavMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

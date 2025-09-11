@@ -1,38 +1,21 @@
-/* Authentication Styles - Beekeeping Course System */
+/* Authentication Styles - Uses Unified Design System */
+/* Import the unified design system */
+@import url('design-system.css');
+
+/* Auth-specific overrides and additions */
 :root {
+    /* Auth-specific color overrides */
     --primary-yellow: #facc4c;
     --primary-yellow-hover: #f4c035;
-    --udemy-purple: #A435F0;
-    --dark-bg: #0b0804;
-    --text-dark: #0b0804;
-    --text-light: #655238;
-    --text-lighter: #8a7a5a;
-    --border-color: #d4c4a6;
-    --white: #FFFFFF;
     --success-green: #28A745;
     --error-red: #dc3545;
     --warning-orange: #ffc107;
-    --shadow: 0 2px 4px rgba(11, 8, 4, 0.08);
-    --shadow-hover: 0 4px 8px rgba(11, 8, 4, 0.12);
-    --shadow-card: 0 4px 12px rgba(11, 8, 4, 0.1);
-    --gradient-primary: linear-gradient(135deg, #facc4c 0%, #f4c035 100%);
-    --gradient-secondary: linear-gradient(135deg, #655238 0%, #8a7a5a 100%);
     --gradient-purple: linear-gradient(135deg, #A435F0 0%, #667eea 100%);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* Background Pattern */
